@@ -1,0 +1,46 @@
+{
+  "checked_at": "2026-11-02T16:13:26.906Z",
+  "base": "https://signalspend-ai.vercel.app",
+  "checks": [
+    {
+      "name": "NVIDIA key configured on the server",
+      "ok": true,
+      "detail": "configured (server environment)"
+    },
+    {
+      "name": "Performance: Explain disabled until approval",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Performance: explanation received",
+      "ok": true,
+      "detail": "The report is marked as synthetic, meaning the date and revenue figures are generated data rather than live me…"
+    },
+    {
+      "name": "Model: Explain disabled until approval",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Model: explanation received",
+      "ok": true,
+      "detail": "The report is marked as synthetic, meaning the date and revenue figures are generated data rather than live me…"
+    },
+    {
+      "name": "Budget plan: Explain disabled until approval",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Budget plan: explanation received",
+      "ok": true,
+      "detail": "The report is marked as synthetic, meaning all date and revenue fields are simulated and not derived from live…"
+    },
+    {
+      "name": "No uncaught page errors",
+      "ok": true,
+      "detail": ""
+    }
+  ]
+}

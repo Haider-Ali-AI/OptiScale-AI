@@ -14,6 +14,15 @@
 | NVIDIA live call | — | Not run (no key; optional feature) |
 | Hosted/serverless tests on Linux | — | Not run (no Linux environment; WSL has only docker-desktop) |
 
+## Final run (after public demo + NVIDIA + story removal)
+| Where | Result |
+|---|---|
+| Backend pytest (Java on) | 201 passed, 9 failed (Windows/POSIX-only, unchanged), 1 skipped |
+| Ruff / tsc / ESLint / build | all passed |
+| Local: QA 10 routes × 7 widths; E2E core; commerce; assistant | clean; 10/10; 8/8; 8/8 |
+| Live (no login): QA 10 routes × 3 widths; E2E core; commerce; assistant | clean; 10/10; 8/8; 8/8 |
+| Live security | deletes 403, key changes 403, cross-site writes 403 |
+
 ## Measured timings: median of 3 measured repeats (setup excluded)
 Same job per scale, seed 42, 2 workers, this laptop (10 physical cores, ~4 GB RAM free during runs).
 
