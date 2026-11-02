@@ -1,0 +1,10 @@
+FAILED backend/tests/test_ai.py::test_private_key_lifecycle_and_truthful_status
+FAILED backend/tests/test_benchmarks.py::test_cleanup_kills_orphan_group_after_runner_exits
+FAILED backend/tests/test_commerce.py::test_shopify_order_grain_privacy_and_repeated_totals
+FAILED backend/tests/test_serverless.py::test_cold_invocations_restore_campaigns_and_export
+FAILED backend/tests/test_serverless.py::test_storage_failure_never_returns_success_or_publishes_partial_state
+FAILED backend/tests/test_serverless.py::test_failed_action_does_not_change_saved_workspace
+FAILED backend/tests/test_serverless.py::test_hosted_lab_cannot_start_detached_worker
+FAILED backend/tests/test_serverless.py::test_workspace_size_limit_and_symlinks
+FAILED backend/tests/test_serverless.py::test_hosted_training_finishes_before_response_and_survives_restore
+9 failed, 201 passed, 1 skipped, 1 warning in 142.42s (0:02:22)

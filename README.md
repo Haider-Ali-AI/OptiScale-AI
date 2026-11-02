@@ -13,22 +13,24 @@ SignalSpend AI turns campaign history into weighted KPIs, measures **Pandas vs M
 ## Contents
 1. [Features](#features)
 2. [Screens](#screens)
-3. [How the numbers are calculated](#how-the-numbers-are-calculated)
-4. [Big Data lab results](#big-data-lab-results)
-5. [Machine learning](#machine-learning)
-6. [Budget recommendation engine](#budget-recommendation-engine)
-7. [Commerce & attribution](#commerce--attribution)
-8. [AI insight assistant (NVIDIA)](#ai-insight-assistant-nvidia)
-9. [Architecture & tech stack](#architecture--tech-stack)
-10. [Project structure](#project-structure)
-11. [Run it locally](#run-it-locally)
-12. [Environment variables](#environment-variables)
-13. [Tests & quality checks](#tests--quality-checks)
-14. [Deployment (Vercel)](#deployment-vercel)
-15. [Security & privacy](#security--privacy)
-16. [Limitations](#limitations)
-17. [Troubleshooting](#troubleshooting)
-18. [Documentation index](#documentation-index)
+3. [Test results](#test-results)
+4. [Screenshots](#screenshots)
+5. [How the numbers are calculated](#how-the-numbers-are-calculated)
+6. [Big Data lab results](#big-data-lab-results)
+7. [Machine learning](#machine-learning)
+8. [Budget recommendation engine](#budget-recommendation-engine)
+9. [Commerce & attribution](#commerce--attribution)
+10. [AI insight assistant (NVIDIA)](#ai-insight-assistant-nvidia)
+11. [Architecture & tech stack](#architecture--tech-stack)
+12. [Project structure](#project-structure)
+13. [Run it locally](#run-it-locally)
+14. [Environment variables](#environment-variables)
+15. [Tests & quality checks](#tests--quality-checks)
+16. [Deployment (Vercel)](#deployment-vercel)
+17. [Security & privacy](#security--privacy)
+18. [Limitations](#limitations)
+19. [Troubleshooting](#troubleshooting)
+20. [Documentation index](#documentation-index)
 
 ---
 
@@ -58,6 +60,31 @@ SignalSpend AI turns campaign history into weighted KPIs, measures **Pandas vs M
 | `/commerce` | Commerce & attribution |
 | `/assistant` | AI insight assistant |
 | `/methodology` | Formulas, data rules, ML, budget engine, Big Data method, scope |
+
+## Test results
+Every number below comes from the recorded result files in [`docs/`](docs/) (pytest output, browser-journey JSON, page-QA JSON and Big Data evidence). The card is regenerated with `node scripts/test-results-card.mjs`.
+
+![Test results](docs/screenshots/test-results.png)
+
+| Suite | Local | Live (no login) |
+|---|---|---|
+| Backend pytest | 201 passed (9 Windows-only environment failures, 1 skipped) | n/a |
+| Core journeys: Rs 1M exact plan, 20% cap, stale estimates, model re-evaluation, explorer, redirects | 10/10 | 10/10 |
+| Commerce import + comparison | 8/8 | 8/8 |
+| AI assistant (real NVIDIA explanations, approval gate) | 8/8 | 8/8 |
+| Pages × screen sizes (HTTP 200, 0 console errors, 0 overflow) | 70/70 dark, 40/40 light | 30/30 |
+| Big Data lab: 4 scales × 3 engines × 3 repeats parity | all correct | n/a (runs locally) |
+
+## Screenshots
+| | |
+|---|---|
+| **Welcome** ![Welcome](docs/screenshots/cloud-welcome-1440.png) | **Executive overview** ![Overview](docs/screenshots/cloud-overview-1440.png) |
+| **Budget: Rs 1,000,000 exact plan** ![Budget plan](docs/screenshots/cloud-flow-budget-1m-1440.png) | **ML validation studio** ![Models](docs/screenshots/cloud-models-1440.png) |
+| **Big Data lab (local, 10K → 10M)** ![Lab](docs/screenshots/lab-1440.png) | **Campaign explorer** ![Campaigns](docs/screenshots/cloud-campaigns-1440.png) |
+| **Commerce & attribution** ![Commerce](docs/screenshots/cloud-flow-commerce-import-1440.png) | **AI insight assistant (NVIDIA)** ![Assistant](docs/screenshots/cloud-assistant-explain-1440.png) |
+| **Data studio** ![Data](docs/screenshots/cloud-data-1440.png) | **Light theme** ![Light theme](docs/screenshots/overview-1440-light.png) |
+
+**Mobile (375 px):** [Overview](docs/screenshots/cloud-overview-375.png) · [Budget](docs/screenshots/cloud-budget-375.png) · [Lab](docs/screenshots/cloud-lab-375.png) · [Commerce](docs/screenshots/cloud-commerce-375.png) · [Assistant](docs/screenshots/cloud-assistant-375.png)
 
 ## How the numbers are calculated
 All aggregates are computed on the server from **summed base values**. Per-row rates are never averaged.

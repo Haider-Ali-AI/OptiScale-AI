@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-02T15:19:24.659Z",
+  "checked_at": "2026-11-02T16:23:01.166Z",
   "base": "http://127.0.0.1:3000",
   "results": [
     {
@@ -83,14 +83,6 @@
       "console_errors": []
     },
     {
-      "route": "/story",
-      "width": 320,
-      "status": 200,
-      "h1": "Project 2 walkthrough: requirement → screen → evidence",
-      "horizontal_overflow_px": 0,
-      "console_errors": []
-    },
-    {
       "route": "/",
       "width": 375,
       "status": 200,
@@ -167,14 +159,6 @@
       "width": 375,
       "status": 200,
       "h1": "How SignalSpend calculates and decides",
-      "horizontal_overflow_px": 0,
-      "console_errors": []
-    },
-    {
-      "route": "/story",
-      "width": 375,
-      "status": 200,
-      "h1": "Project 2 walkthrough: requirement → screen → evidence",
       "horizontal_overflow_px": 0,
       "console_errors": []
     },
@@ -259,14 +243,6 @@
       "console_errors": []
     },
     {
-      "route": "/story",
-      "width": 768,
-      "status": 200,
-      "h1": "Project 2 walkthrough: requirement → screen → evidence",
-      "horizontal_overflow_px": 0,
-      "console_errors": []
-    },
-    {
       "route": "/",
       "width": 1440,
       "status": 200,
@@ -343,14 +319,6 @@
       "width": 1440,
       "status": 200,
       "h1": "How SignalSpend calculates and decides",
-      "horizontal_overflow_px": 0,
-      "console_errors": []
-    },
-    {
-      "route": "/story",
-      "width": 1440,
-      "status": 200,
-      "h1": "Project 2 walkthrough: requirement → screen → evidence",
       "horizontal_overflow_px": 0,
       "console_errors": []
     }
