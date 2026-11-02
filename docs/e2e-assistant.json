@@ -1,0 +1,46 @@
+{
+  "checked_at": "2026-11-02T16:10:57.837Z",
+  "base": "http://127.0.0.1:3000",
+  "checks": [
+    {
+      "name": "NVIDIA key configured on the server",
+      "ok": true,
+      "detail": "configured (server environment)"
+    },
+    {
+      "name": "Performance: Explain disabled until approval",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Performance: explanation received",
+      "ok": true,
+      "detail": "The report is marked as synthetic, meaning all date and revenue values are generated data rather than live mea…"
+    },
+    {
+      "name": "Model: Explain disabled until approval",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Model: explanation received",
+      "ok": true,
+      "detail": "The report is generated from a synthetic model and explicitly states that all dates and revenue figures are si…"
+    },
+    {
+      "name": "Budget plan: Explain disabled until approval",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Budget plan: explanation received",
+      "ok": true,
+      "detail": "The report is marked as synthetic, meaning the date and revenue figures are simulated and not derived from liv…"
+    },
+    {
+      "name": "No uncaught page errors",
+      "ok": true,
+      "detail": ""
+    }
+  ]
+}

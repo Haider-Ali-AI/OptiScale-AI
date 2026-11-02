@@ -106,8 +106,8 @@ check("Matched store sales equal the backend demo (Rs 5,150.00)", matchedSales =
 const counts = [await outcome("Matched"), await outcome("Unmatched"), await outcome("Ambiguous"), await outcome("Excluded")].join("/");
 check("Matching outcomes equal the backend demo (4/1/1/2)", counts === "4/1/1/2", counts);
 check("Reference check shows zero differences", await page.getByText("net sales difference Rs 0.00, order count difference 0").isVisible());
-await page.screenshot({ path: `${root}docs/screenshots/flow-commerce-import-1440.png`, fullPage: true });
+await page.screenshot({ path: `${root}docs/screenshots/${process.env.QA_TAG ? process.env.QA_TAG + "-" : ""}flow-commerce-import-1440.png`, fullPage: true });
 check("No uncaught page errors", errors.length === 0, errors.join(" | "));
 await browser.close();
-await writeFile(`${root}docs/e2e-commerce.json`, JSON.stringify({ checked_at: new Date().toISOString(), tag, checks }, null, 2) + "\n");
+await writeFile(`${root}docs/e2e-commerce${process.env.QA_TAG ? "-" + process.env.QA_TAG : ""}.json`, JSON.stringify({ checked_at: new Date().toISOString(), tag, checks }, null, 2) + "\n");
 if (checks.some((x) => !x.ok)) process.exitCode = 1;

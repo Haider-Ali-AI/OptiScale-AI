@@ -31,6 +31,8 @@ export function Assistant() {
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setApproved(false);
     setAnswer(null);
+    // Never show (or allow approving) the previous report's summary while the new one loads.
+    setSummary(null);
     api<AISummary>(`/ai/summary?kind=${kind}`, { signal: c.signal })
       .then((s) => {
         setSummary(s);
@@ -182,7 +184,7 @@ export function Assistant() {
                 <button
                   className="btn primary"
                   type="button"
-                  disabled={!approved || !status?.configured || !!busy}
+                  disabled={!approved || !status?.configured || !!busy || summary.kind !== kind}
                   onClick={async () => {
                     setBusy("Waiting for the provider…");
                     setError("");
