@@ -87,12 +87,12 @@ export function Welcome() {
             Open import <ArrowRight size={16} />
           </span>
         </Link>
-        <Link className="panel path-card" href="/story">
+        <Link className="panel path-card" href="/methodology">
           <BookOpen size={22} color="var(--peri)" aria-hidden="true" />
           <h3>Understand the workflow</h3>
-          <p>A guided tour that maps every Project 2 requirement to the screen and evidence that proves it.</p>
+          <p>How every KPI, model, Big Data comparison and budget recommendation is calculated, with formulas and limits.</p>
           <span className="btn">
-            Start the story <ArrowRight size={16} />
+            Read the methodology <ArrowRight size={16} />
           </span>
         </Link>
       </div>

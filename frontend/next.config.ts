@@ -8,6 +8,7 @@ const legacy: Record<string, string> = {
   "/big-data-lab": "/lab",
   "/ai-assistant": "/assistant",
   "/help": "/methodology",
+  "/story": "/methodology",
 };
 
 const config: NextConfig = {

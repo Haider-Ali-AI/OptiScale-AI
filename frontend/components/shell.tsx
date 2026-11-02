@@ -7,7 +7,6 @@ import {
   Compass,
   Cpu,
   Database,
-  GraduationCap,
   LayoutDashboard,
   Menu,
   Moon,
@@ -30,7 +29,6 @@ export const NAV = [
     label: "Start",
     items: [
       { href: "/", label: "Welcome", icon: Compass },
-      { href: "/story", label: "University story", icon: GraduationCap },
     ],
   },
   {

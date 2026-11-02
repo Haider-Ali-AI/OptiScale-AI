@@ -10,7 +10,7 @@ const { chromium } = require("playwright");
 const root = fileURLToPath(new URL("../", import.meta.url));
 const arg = (name, fallback) => process.argv.find((a) => a.startsWith(`--${name}=`))?.split("=")[1] ?? fallback;
 const BASE = process.env.APP_URL || "http://127.0.0.1:3000";
-const ROUTES = arg("routes", "/,/overview,/campaigns,/data,/budget,/models,/lab,/commerce,/assistant,/methodology,/story").split(",");
+const ROUTES = arg("routes", "/,/overview,/campaigns,/data,/budget,/models,/lab,/commerce,/assistant,/methodology").split(",");
 const WIDTHS = arg("widths", "320,375,430,768,1024,1280,1440").split(",").map(Number);
 const THEME = arg("theme", "dark");
 const SHOTS = new Set(arg("shots", "375,1440").split(",").map(Number));
