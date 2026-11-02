@@ -18,7 +18,7 @@ All algorithms (KPI maths, synthetic generator, Pandas/MapReduce/Spark benchmark
 ## License status
 **No license was found in the original repository.** Default copyright applies. Written permission from the owner is required before this repository (or anything containing the reused backend) is published, deployed publicly or submitted for credit.
 
-Permission record: _not yet received_ (date / form / link to be added here).
+Permission record: **granted**. On 2026-11-02 the project user stated that the repository owner (adnanf787) has given permission to reuse, modify and deploy this code. Keep the owner's original written message (chat/email screenshot) with your submission records; the agent did not see it directly.
 
 ## Original contributions in this repository (SignalSpend AI)
 - Entirely new Next.js frontend: `frontend/app/**`, `frontend/components/**`, `frontend/lib/**` (typed API adapter, formatting), new visual identity and design tokens.

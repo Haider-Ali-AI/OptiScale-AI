@@ -4,7 +4,7 @@
 
 SignalSpend AI is a decision studio for students, marketers and small teams. It turns campaign history into weighted KPIs, measures Pandas vs MapReduce vs Spark on 10K–10M rows, trains and validates an XGBoost revenue model, and allocates a user-entered PKR budget exactly to the paisa within the user's limits, with every method, caveat and data source labelled.
 
-> **Provenance.** The Python/FastAPI backend is reused from [adnanf787/black-stone](https://github.com/adnanf787/black-stone) (commit `23e788e`) with two documented, test-first benchmark fixes. The frontend, design system, QA scripts and documentation in this repository are new. See [ATTRIBUTION.md](ATTRIBUTION.md). **The reference repo has no license; obtain the owner's written permission before publishing or submitting this code.**
+> **Provenance.** The Python/FastAPI backend is reused from [adnanf787/black-stone](https://github.com/adnanf787/black-stone) (commit `23e788e`) with two documented, test-first benchmark fixes. The frontend, design system, QA scripts and documentation in this repository are new. See [ATTRIBUTION.md](ATTRIBUTION.md). Reuse and deployment permission was granted by the owner (recorded 2026-11-02).
 
 ![Executive overview](docs/screenshots/overview-1440.png)
 
@@ -18,7 +18,7 @@ SignalSpend AI is a decision studio for students, marketers and small teams. It 
 | Budget engine: PKR 1,000,000 exact-paisa plan, constraints, comparisons, CSV/JSON | ✅ |
 | Commerce: import own order/cost CSVs, UTM mappings, comparisons, gated contribution plans | ✅ (UI-tested with fictional fixtures; real merchant validation pending) |
 | NVIDIA explanation assistant (optional) | UI ready; live provider not verified (no key) |
-| Hosted Basic-auth guard (production build) | ✅ locally; Vercel deployment **not done** |
+| Vercel deployment (private, Neon Postgres) | ✅ https://signalspend-ai.vercel.app, verified: auth, persistence, training, PKR 1M plan, CSV, browser QA ([deployment](docs/deployment.md)) |
 
 No ad or store accounts are connected, and nothing changes live spending.
 

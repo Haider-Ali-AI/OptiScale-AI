@@ -10,8 +10,9 @@ const { chromium } = require("playwright");
 const root = fileURLToPath(new URL("../", import.meta.url));
 const BASE = process.env.APP_URL || "http://127.0.0.1:3000";
 const launch = process.env.CHROMIUM_EXECUTABLE ? { executablePath: process.env.CHROMIUM_EXECUTABLE } : { channel: process.env.PW_CHANNEL || "msedge" };
+const httpCredentials = process.env.HTTP_USER ? { username: process.env.HTTP_USER, password: process.env.HTTP_PASS || "" } : undefined;
 const browser = await chromium.launch({ headless: true, ...launch });
-const page = await (await browser.newContext({ viewport: { width: 1440, height: 1000 } })).newPage();
+const page = await (await browser.newContext({ viewport: { width: 1440, height: 1000 }, httpCredentials })).newPage();
 const errors = [];
 page.on("pageerror", (e) => errors.push(e.message));
 const checks = [];
@@ -41,7 +42,7 @@ const amounts = await page.locator("section[aria-label='Recommended allocation']
 check("Independent paisa sum of table equals 1,000,000.00", paisaSum(amounts) === 100_000_000, amounts.join(" | "));
 const method = await page.locator(".kpi", { hasText: "Method used" }).locator(".kpi-value").textContent();
 check("Method is disclosed", !!method?.trim(), method);
-await page.screenshot({ path: `${root}docs/screenshots/flow-budget-1m-1440.png`, fullPage: true });
+await page.screenshot({ path: `${root}docs/screenshots/${process.env.QA_TAG ? process.env.QA_TAG + "-" : ""}flow-budget-1m-1440.png`, fullPage: true });
 
 // 2 · Constraint: cap Google at 20% and regenerate.
 const google = page.locator("fieldset", { hasText: "Google" }).last();
@@ -78,5 +79,5 @@ check("Legacy /budget-optimizer redirects to /budget", page.url().endsWith("/bud
 check("No uncaught page errors", errors.length === 0, errors.join(" | "));
 await browser.close();
 await mkdir(`${root}docs`, { recursive: true });
-await writeFile(`${root}docs/e2e-flows.json`, JSON.stringify({ checked_at: new Date().toISOString(), checks }, null, 2) + "\n");
+await writeFile(`${root}docs/e2e-flows${process.env.QA_TAG ? "-" + process.env.QA_TAG : ""}.json`, JSON.stringify({ checked_at: new Date().toISOString(), checks }, null, 2) + "\n");
 if (checks.some((c) => !c.ok)) process.exitCode = 1;

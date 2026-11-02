@@ -1,0 +1,55 @@
+{
+  "checked_at": "2026-11-02T15:35:03.627Z",
+  "checks": [
+    {
+      "name": "PKR 1,000,000 plan sums exactly",
+      "ok": true,
+      "detail": "Exact-total check: platform amounts sum to Rs 1,000,000.00 — equal to the requested budget to the last paisa."
+    },
+    {
+      "name": "Independent paisa sum of table equals 1,000,000.00",
+      "ok": true,
+      "detail": "Rs 254,376.05 | Rs 222,320.64 | Rs 216,470.73 | Rs 158,378.25 | Rs 148,454.33"
+    },
+    {
+      "name": "Method is disclosed",
+      "ok": true,
+      "detail": "XGBoost + adjusted response curves"
+    },
+    {
+      "name": "Editing inputs hides stale estimates",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Google share respects 20% cap",
+      "ok": true,
+      "detail": "18.61%"
+    },
+    {
+      "name": "Constrained plan still sums exactly",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Saved model re-evaluation matches stored holdout",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Campaign table sorts by ROAS on the server",
+      "ok": true,
+      "detail": "23.72×"
+    },
+    {
+      "name": "Legacy /budget-optimizer redirects to /budget",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "No uncaught page errors",
+      "ok": true,
+      "detail": ""
+    }
+  ]
+}

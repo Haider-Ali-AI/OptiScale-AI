@@ -16,7 +16,11 @@
 - **Commerce own-CSV import + comparison builder · Verified** with fictional fixtures through the UI (8/8).
 - Tests: pytest 197/9 (Windows-only)/1, ruff ✓, tsc+eslint ✓, build ✓, QA clean, E2E 10/10 + 8/8.
 
-## Still blocked (needs the user)
-- Owner's written permission or license (redistribution, GitHub push, Vercel, submission).
-- GitHub/Vercel/Neon accounts for deployment.
-- NVIDIA API key for the optional live explanation check.
+## 2026-11-02 · Session 3: deployment
+- Owner permission recorded (user-reported).
+- Vercel project + free Neon Postgres (production only) + sensitive owner password; production verified: 401/403 guards, persistence, in-request XGBoost (accepted), exact PKR 1M plan, CSV import/export, hosted lab limitation, browser QA 33/33, E2E 10/10. See docs/deployment.md.
+
+## Remaining optional items
+- NVIDIA API key for the optional explanation check.
+- GitHub remote (not required for the CLI-based Vercel deployment).
+- Hosted/serverless backend tests on Linux CI.

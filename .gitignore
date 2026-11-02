@@ -17,3 +17,6 @@ frontend/.backend/
 .vercel/
 playwright-report/
 test-results/
+
+.vercel
+.env*

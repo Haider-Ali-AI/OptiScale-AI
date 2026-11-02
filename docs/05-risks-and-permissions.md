@@ -1,6 +1,9 @@
 # 05 · Risks and permissions
 
-## Licensing — BLOCKER for redistribution
+## Licensing: permission granted (2026-11-02)
+The user reported on 2026-11-02 that the owner (adnanf787) granted permission. Keep the owner's written message as evidence. The original analysis follows.
+
+### Original finding
 The reference repository has **no LICENSE file and no license statement**. Under default copyright, public visibility does not grant permission to copy, modify or redistribute.
 
 Current handling:

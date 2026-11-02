@@ -18,11 +18,12 @@ const SHOTS = new Set(arg("shots", "375,1440").split(",").map(Number));
 const launch = process.env.CHROMIUM_EXECUTABLE
   ? { executablePath: process.env.CHROMIUM_EXECUTABLE }
   : { channel: process.env.PW_CHANNEL || "msedge" };
+const httpCredentials = process.env.HTTP_USER ? { username: process.env.HTTP_USER, password: process.env.HTTP_PASS || "" } : undefined;
 const browser = await chromium.launch({ headless: true, ...launch });
 await mkdir(`${root}docs/screenshots`, { recursive: true });
 const results = [];
 for (const width of WIDTHS) {
-  const context = await browser.newContext({ viewport: { width, height: 900 }, colorScheme: THEME });
+  const context = await browser.newContext({ viewport: { width, height: 900 }, colorScheme: THEME, httpCredentials });
   await context.addInitScript((t) => localStorage.setItem("signalspend.theme", t), THEME);
   for (const route of ROUTES) {
     const page = await context.newPage();
@@ -33,7 +34,7 @@ for (const width of WIDTHS) {
     await page.waitForTimeout(900);
     const overflow = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth);
     const h1 = await page.locator("h1").first().textContent().catch(() => null);
-    const name = `${route === "/" ? "welcome" : route.slice(1)}-${width}${THEME === "light" ? "-light" : ""}`;
+    const name = `${process.env.QA_TAG ? process.env.QA_TAG + "-" : ""}${route === "/" ? "welcome" : route.slice(1)}-${width}${THEME === "light" ? "-light" : ""}`;
     if (SHOTS.has(width)) await page.screenshot({ path: `${root}docs/screenshots/${name}.png`, fullPage: true });
     results.push({ route, width, status: response?.status(), h1, horizontal_overflow_px: overflow, console_errors: errors });
     console.log(`${String(response?.status()).padEnd(4)} ${String(width).padEnd(5)} ${route.padEnd(13)} overflow=${overflow}px errors=${errors.length} ${h1 ?? ""}`);
@@ -42,7 +43,7 @@ for (const width of WIDTHS) {
   await context.close();
 }
 await browser.close();
-await writeFile(`${root}docs/qa-screens-${THEME}.json`, JSON.stringify({ checked_at: new Date().toISOString(), base: BASE, results }, null, 2) + "\n");
+await writeFile(`${root}docs/qa-screens-${THEME}${process.env.QA_TAG ? "-" + process.env.QA_TAG : ""}.json`, JSON.stringify({ checked_at: new Date().toISOString(), base: BASE, results }, null, 2) + "\n");
 const bad = results.filter((r) => r.status !== 200 || r.horizontal_overflow_px > 0 || r.console_errors.length);
 console.log(bad.length ? `\n${bad.length} issue(s) found` : "\nAll routes clean");
 if (bad.length) process.exitCode = 1;
