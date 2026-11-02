@@ -4,6 +4,8 @@ import { NextResponse, type NextRequest } from "next/server";
 // Hosted single-owner guard (same contract as the backend middleware:
 // username "owner", ADS_ACCESS_PASSWORD >= 32 chars). Local dev without a password is open.
 export function proxy(request: NextRequest) {
+  // Login-free public demo (BC-3): the backend still refuses deletes/key changes.
+  if (process.env.ADS_PUBLIC_DEMO === "1") return NextResponse.next();
   const password = process.env.ADS_ACCESS_PASSWORD || "";
   if (!process.env.VERCEL && !password) return NextResponse.next();
   if (password.length < 32) {

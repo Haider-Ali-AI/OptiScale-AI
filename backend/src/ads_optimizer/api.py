@@ -105,7 +105,19 @@ async def local_write_guard(request: Request, call_next):
         os.environ.get("ADS_HOSTED") == "1" or os.environ.get("RENDER") == "true" or serverless()
     )
     password = os.environ.get("ADS_ACCESS_PASSWORD", "")
-    if hosted or password:
+    # SignalSpend patch BC-3 (user-requested): optional login-free public demo.
+    # Destructive and secret-changing writes stay refused; origin/size guards remain.
+    public_demo = os.environ.get("ADS_PUBLIC_DEMO") == "1"
+    if public_demo and (
+        request.method == "DELETE" or request.url.path.startswith("/api/v1/ai/key")
+    ):
+        return JSONResponse(
+            status_code=403,
+            content={
+                "detail": "Deleting data and changing API keys are disabled in the public demo."
+            },
+        )
+    if (hosted or password) and not public_demo:
         if request.url.path != "/api/v1/health":
             if len(password) < 32:
                 return JSONResponse(
