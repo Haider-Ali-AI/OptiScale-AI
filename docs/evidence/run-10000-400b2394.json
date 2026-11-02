@@ -1,0 +1,587 @@
+{
+  "methodology": {
+    "workload": "platform_totals_v1",
+    "source": "Seeded synthetic campaigns only; PKR; configured dates and platforms.",
+    "timing": "Each repeat includes projected Parquet reads, aggregation, weighted rates and materialization of platform totals. Generation, checksums and engine setup are excluded and reported separately. No application cache or unreported warm-up.",
+    "setup": "Imports/session initialization (including JVM startup and mapper readiness) measured separately. No input is read as an unreported warm-up.",
+    "cache": "Sequential engine runs on one machine. OS/JVM caches are not flushed. Later repeats may benefit from warm caches; timings are not cluster benchmarks.",
+    "correctness": "Every repeat must match independent vector-mask reference sums recorded during generation. Row/non-null counts and scaled-integer sums match exactly; weighted float rates use absolute and relative tolerance 1e-9.",
+    "precision": "Money is summed as integer paisa; conversions as integer millionths. Incomplete metrics propagate null totals; zero denominators yield null rates.",
+    "memory": "Sampled sum of RSS for the engine process and its descendants (including Spark JVM and mapper processes), every 150 ms. Shared pages may be counted more than once and short peaks may be missed. This is not whole-system memory. Generation checks its own worker tree at chunk boundaries. Unmeasurable memory stays null.",
+    "resources": "One local job; 1\u20134 workers; 512\u20134096 MiB sampled memory ceiling; 10-minute engine / 30-minute job limits. Exceeding a limit stops the affected work. Pandas switches to bounded chunks when rows \u00d7 200 bytes exceed 40% of the chosen allowance. Native-library threads are bounded where supported.",
+    "cancellation": "Cooperative cancellation between generation chunks and during engine monitoring. Child processes are terminated; incomplete data is removed. Saved data and completed repeats remain. Jobs survive web-server reloads."
+  },
+  "id": "400b2394d38a4fe69f6caf49726433c1",
+  "status": "completed",
+  "stage": "done",
+  "created_at": "2026-11-02T14:18:56.542121+00:00",
+  "updated_at": "2026-11-02T14:19:04.601728+00:00",
+  "config": {
+    "kind": "benchmark",
+    "rows": 10000,
+    "seed": 42,
+    "start_date": "2026-01-01",
+    "end_date": "2026-03-31",
+    "platforms": [
+      "Facebook",
+      "Instagram",
+      "Google",
+      "TikTok",
+      "YouTube"
+    ],
+    "chunk_rows": 50000,
+    "engines": [
+      "pandas",
+      "mapreduce"
+    ],
+    "repeats": 3,
+    "workers": 2,
+    "memory_mib": 2048,
+    "dataset_id": null
+  },
+  "message": "Experiment finished. Review measured results and any engine failures or skips.",
+  "generated_rows": 10000,
+  "cancel_requested": false,
+  "worker_pid": 48020,
+  "dataset": {
+    "id": "c67bbc2bd9b6446baf8d694f4f515b41",
+    "config_key": "e511a4a8fe03763e26f1c2f2f3ec316f3626171eda917b0576ebee0c7c0c59f8",
+    "created_at": "2026-11-02T14:17:02.998858+00:00",
+    "is_synthetic": true,
+    "currency": "PKR",
+    "source": "synthetic_benchmark",
+    "rows": 10000,
+    "bytes": 216930,
+    "parts": 1,
+    "config": {
+      "rows": 10000,
+      "seed": 42,
+      "start_date": "2026-01-01",
+      "end_date": "2026-03-31",
+      "platforms": [
+        "Facebook",
+        "Instagram",
+        "Google",
+        "TikTok",
+        "YouTube"
+      ],
+      "chunk_rows": 50000
+    },
+    "generator_version": "1.0-batched-v1",
+    "sha256": "c4ac0e702083d6edfa16b208959faea56db7da3a338e0d574c757e9744fa3846",
+    "files": [
+      {
+        "file": "part-00000.parquet",
+        "sha256": "93fc30cf2327ed9fb7363f68017b063b209d3e9a28542a435ea56593b8352a8c",
+        "rows": 10000,
+        "bytes": 216930
+      }
+    ],
+    "reference_units": {
+      "Facebook": {
+        "rows": 1874,
+        "impressions": 13799511,
+        "clicks": 216796,
+        "spend": 327221384,
+        "conversions": 7826000000,
+        "revenue": 1857268660,
+        "known_impressions": 1874,
+        "known_clicks": 1874,
+        "known_spend": 1874,
+        "known_conversions": 1874,
+        "known_revenue": 1874
+      },
+      "Google": {
+        "rows": 1698,
+        "impressions": 10772849,
+        "clicks": 169231,
+        "spend": 347215610,
+        "conversions": 8208000000,
+        "revenue": 2311939266,
+        "known_impressions": 1698,
+        "known_clicks": 1698,
+        "known_spend": 1698,
+        "known_conversions": 1698,
+        "known_revenue": 1698
+      },
+      "Instagram": {
+        "rows": 3302,
+        "impressions": 21877447,
+        "clicks": 338333,
+        "spend": 607321179,
+        "conversions": 13738000000,
+        "revenue": 3608335362,
+        "known_impressions": 3302,
+        "known_clicks": 3302,
+        "known_spend": 3302,
+        "known_conversions": 3302,
+        "known_revenue": 3302
+      },
+      "TikTok": {
+        "rows": 1787,
+        "impressions": 10247659,
+        "clicks": 163972,
+        "spend": 370186789,
+        "conversions": 8531000000,
+        "revenue": 2601843449,
+        "known_impressions": 1787,
+        "known_clicks": 1787,
+        "known_spend": 1787,
+        "known_conversions": 1787,
+        "known_revenue": 1787
+      },
+      "YouTube": {
+        "rows": 1339,
+        "impressions": 7477852,
+        "clicks": 112049,
+        "spend": 304722770,
+        "conversions": 5936000000,
+        "revenue": 1936596452,
+        "known_impressions": 1339,
+        "known_clicks": 1339,
+        "known_spend": 1339,
+        "known_conversions": 1339,
+        "known_revenue": 1339
+      }
+    },
+    "reference": [
+      {
+        "name": "Facebook",
+        "rows": 1874,
+        "impressions": 13799511.0,
+        "clicks": 216796.0,
+        "spend": 3272213.84,
+        "conversions": 7826.0,
+        "revenue": 18572686.6,
+        "ctr": 1.571041176748944,
+        "cpc": 15.093515747523016,
+        "cpa": 418.1208586762075,
+        "cvr": 3.609845200095943,
+        "roas": 5.675878016578526,
+        "coverage": {
+          "impressions": 1.0,
+          "clicks": 1.0,
+          "spend": 1.0,
+          "conversions": 1.0,
+          "revenue": 1.0
+        }
+      },
+      {
+        "name": "Google",
+        "rows": 1698,
+        "impressions": 10772849.0,
+        "clicks": 169231.0,
+        "spend": 3472156.1,
+        "conversions": 8208.0,
+        "revenue": 23119392.66,
+        "ctr": 1.5709029245652657,
+        "cpc": 20.517258067375362,
+        "cpa": 423.0209673489279,
+        "cvr": 4.85017520430654,
+        "roas": 6.658511885453537,
+        "coverage": {
+          "impressions": 1.0,
+          "clicks": 1.0,
+          "spend": 1.0,
+          "conversions": 1.0,
+          "revenue": 1.0
+        }
+      },
+      {
+        "name": "Instagram",
+        "rows": 3302,
+        "impressions": 21877447.0,
+        "clicks": 338333.0,
+        "spend": 6073211.79,
+        "conversions": 13738.0,
+        "revenue": 36083353.62,
+        "ctr": 1.546492147826938,
+        "cpc": 17.9503973599974,
+        "cpa": 442.07394016596305,
+        "cvr": 4.060496611326711,
+        "roas": 5.941395569213304,
+        "coverage": {
+          "impressions": 1.0,
+          "clicks": 1.0,
+          "spend": 1.0,
+          "conversions": 1.0,
+          "revenue": 1.0
+        }
+      },
+      {
+        "name": "TikTok",
+        "rows": 1787,
+        "impressions": 10247659.0,
+        "clicks": 163972.0,
+        "spend": 3701867.89,
+        "conversions": 8531.0,
+        "revenue": 26018434.49,
+        "ctr": 1.6000922747331854,
+        "cpc": 22.576219659454054,
+        "cpa": 433.93129644824756,
+        "cvr": 5.2027175371404875,
+        "roas": 7.02846110750862,
+        "coverage": {
+          "impressions": 1.0,
+          "clicks": 1.0,
+          "spend": 1.0,
+          "conversions": 1.0,
+          "revenue": 1.0
+        }
+      },
+      {
+        "name": "YouTube",
+        "rows": 1339,
+        "impressions": 7477852.0,
+        "clicks": 112049.0,
+        "spend": 3047227.7,
+        "conversions": 5936.0,
+        "revenue": 19365964.52,
+        "ctr": 1.498411575944536,
+        "cpc": 27.195492150755474,
+        "cpa": 513.3469845013477,
+        "cvr": 5.297682264009495,
+        "roas": 6.355273194714001,
+        "coverage": {
+          "impressions": 1.0,
+          "clicks": 1.0,
+          "spend": 1.0,
+          "conversions": 1.0,
+          "revenue": 1.0
+        }
+      }
+    ]
+  },
+  "environment": {
+    "os": "Windows-11-10.0.26300-SP0",
+    "architecture": "AMD64",
+    "cpu": "Intel64 Family 6 Model 154 Stepping 4, GenuineIntel",
+    "logical_cpus": 12,
+    "physical_cpus": 10,
+    "ram_total_bytes": 25459482624,
+    "ram_available_bytes": 4745281536,
+    "disk_free_bytes": 87536467968,
+    "python": "3.12.15",
+    "packages": {
+      "pandas": "2.3.3",
+      "numpy": "2.5.4",
+      "pyarrow": "26.0.0",
+      "pyspark": "4.2.1",
+      "psutil": "7.2.2"
+    },
+    "java": {
+      "major": 21,
+      "description": "openjdk version \"21.0.10\" 2026-01-20"
+    },
+    "input_format": "partitioned Parquet / Snappy",
+    "engines": [
+      {
+        "id": "pandas",
+        "label": "Pandas",
+        "available": true,
+        "reason": "In-memory groupby when safe; explicitly chunked for larger inputs."
+      },
+      {
+        "id": "mapreduce",
+        "label": "Local MapReduce",
+        "available": true,
+        "reason": "Python process mappers, local shuffle/group, and a sum/count reducer."
+      },
+      {
+        "id": "spark",
+        "label": "Apache Spark \u00b7 local",
+        "available": true,
+        "reason": "Local PySpark DataFrame aggregation; no distributed cluster."
+      }
+    ],
+    "limits": {
+      "max_rows": 10000000,
+      "max_workers": 4,
+      "max_memory_mib": 4096,
+      "engine_timeout_seconds": 600,
+      "job_timeout_seconds": 1800,
+      "concurrent_jobs": 1,
+      "disk_reserve_bytes": 1073741824
+    }
+  },
+  "results": [
+    {
+      "engine": "pandas",
+      "status": "completed",
+      "runs": [
+        {
+          "repeat": 1,
+          "elapsed_seconds": 0.0929284000012558,
+          "rows_per_second": 107609.72963986106,
+          "correct": true
+        },
+        {
+          "repeat": 2,
+          "elapsed_seconds": 0.030848199996398762,
+          "rows_per_second": 324168.0228074055,
+          "correct": true
+        },
+        {
+          "repeat": 3,
+          "elapsed_seconds": 0.026855100004468113,
+          "rows_per_second": 372368.74926312745,
+          "correct": true
+        }
+      ],
+      "peak_tree_rss_bytes": 105259008,
+      "setup_seconds": 1.0978596000059042,
+      "median_seconds": 0.030848199996398762,
+      "median_rows_per_second": 324168.0228074055,
+      "message": "All repeated results match the reference.",
+      "mode": "Pandas \u00b7 in memory",
+      "aggregate": [
+        {
+          "name": "Facebook",
+          "rows": 1874,
+          "impressions": 13799511.0,
+          "clicks": 216796.0,
+          "spend": 3272213.84,
+          "conversions": 7826.0,
+          "revenue": 18572686.6,
+          "ctr": 1.571041176748944,
+          "cpc": 15.093515747523016,
+          "cpa": 418.1208586762075,
+          "cvr": 3.609845200095943,
+          "roas": 5.675878016578526,
+          "coverage": {
+            "impressions": 1.0,
+            "clicks": 1.0,
+            "spend": 1.0,
+            "conversions": 1.0,
+            "revenue": 1.0
+          }
+        },
+        {
+          "name": "Google",
+          "rows": 1698,
+          "impressions": 10772849.0,
+          "clicks": 169231.0,
+          "spend": 3472156.1,
+          "conversions": 8208.0,
+          "revenue": 23119392.66,
+          "ctr": 1.5709029245652657,
+          "cpc": 20.517258067375362,
+          "cpa": 423.0209673489279,
+          "cvr": 4.85017520430654,
+          "roas": 6.658511885453537,
+          "coverage": {
+            "impressions": 1.0,
+            "clicks": 1.0,
+            "spend": 1.0,
+            "conversions": 1.0,
+            "revenue": 1.0
+          }
+        },
+        {
+          "name": "Instagram",
+          "rows": 3302,
+          "impressions": 21877447.0,
+          "clicks": 338333.0,
+          "spend": 6073211.79,
+          "conversions": 13738.0,
+          "revenue": 36083353.62,
+          "ctr": 1.546492147826938,
+          "cpc": 17.9503973599974,
+          "cpa": 442.07394016596305,
+          "cvr": 4.060496611326711,
+          "roas": 5.941395569213304,
+          "coverage": {
+            "impressions": 1.0,
+            "clicks": 1.0,
+            "spend": 1.0,
+            "conversions": 1.0,
+            "revenue": 1.0
+          }
+        },
+        {
+          "name": "TikTok",
+          "rows": 1787,
+          "impressions": 10247659.0,
+          "clicks": 163972.0,
+          "spend": 3701867.89,
+          "conversions": 8531.0,
+          "revenue": 26018434.49,
+          "ctr": 1.6000922747331854,
+          "cpc": 22.576219659454054,
+          "cpa": 433.93129644824756,
+          "cvr": 5.2027175371404875,
+          "roas": 7.02846110750862,
+          "coverage": {
+            "impressions": 1.0,
+            "clicks": 1.0,
+            "spend": 1.0,
+            "conversions": 1.0,
+            "revenue": 1.0
+          }
+        },
+        {
+          "name": "YouTube",
+          "rows": 1339,
+          "impressions": 7477852.0,
+          "clicks": 112049.0,
+          "spend": 3047227.7,
+          "conversions": 5936.0,
+          "revenue": 19365964.52,
+          "ctr": 1.498411575944536,
+          "cpc": 27.195492150755474,
+          "cpa": 513.3469845013477,
+          "cvr": 5.297682264009495,
+          "roas": 6.355273194714001,
+          "coverage": {
+            "impressions": 1.0,
+            "clicks": 1.0,
+            "spend": 1.0,
+            "conversions": 1.0,
+            "revenue": 1.0
+          }
+        }
+      ]
+    },
+    {
+      "engine": "mapreduce",
+      "status": "completed",
+      "runs": [
+        {
+          "repeat": 1,
+          "elapsed_seconds": 0.04725559998769313,
+          "rows_per_second": 211615.13138346185,
+          "correct": true
+        },
+        {
+          "repeat": 2,
+          "elapsed_seconds": 0.047881900012725964,
+          "rows_per_second": 208847.18437117612,
+          "correct": true
+        },
+        {
+          "repeat": 3,
+          "elapsed_seconds": 0.042641500011086464,
+          "rows_per_second": 234513.32615879076,
+          "correct": true
+        }
+      ],
+      "peak_tree_rss_bytes": 286863360,
+      "setup_seconds": 3.2664533000206575,
+      "median_seconds": 0.04725559998769313,
+      "median_rows_per_second": 211615.13138346185,
+      "message": "All repeated results match the reference.",
+      "mode": "Local MapReduce \u00b7 2 mapper processes",
+      "aggregate": [
+        {
+          "name": "Facebook",
+          "rows": 1874,
+          "impressions": 13799511.0,
+          "clicks": 216796.0,
+          "spend": 3272213.84,
+          "conversions": 7826.0,
+          "revenue": 18572686.6,
+          "ctr": 1.571041176748944,
+          "cpc": 15.093515747523016,
+          "cpa": 418.1208586762075,
+          "cvr": 3.609845200095943,
+          "roas": 5.675878016578526,
+          "coverage": {
+            "impressions": 1.0,
+            "clicks": 1.0,
+            "spend": 1.0,
+            "conversions": 1.0,
+            "revenue": 1.0
+          }
+        },
+        {
+          "name": "Google",
+          "rows": 1698,
+          "impressions": 10772849.0,
+          "clicks": 169231.0,
+          "spend": 3472156.1,
+          "conversions": 8208.0,
+          "revenue": 23119392.66,
+          "ctr": 1.5709029245652657,
+          "cpc": 20.517258067375362,
+          "cpa": 423.0209673489279,
+          "cvr": 4.85017520430654,
+          "roas": 6.658511885453537,
+          "coverage": {
+            "impressions": 1.0,
+            "clicks": 1.0,
+            "spend": 1.0,
+            "conversions": 1.0,
+            "revenue": 1.0
+          }
+        },
+        {
+          "name": "Instagram",
+          "rows": 3302,
+          "impressions": 21877447.0,
+          "clicks": 338333.0,
+          "spend": 6073211.79,
+          "conversions": 13738.0,
+          "revenue": 36083353.62,
+          "ctr": 1.546492147826938,
+          "cpc": 17.9503973599974,
+          "cpa": 442.07394016596305,
+          "cvr": 4.060496611326711,
+          "roas": 5.941395569213304,
+          "coverage": {
+            "impressions": 1.0,
+            "clicks": 1.0,
+            "spend": 1.0,
+            "conversions": 1.0,
+            "revenue": 1.0
+          }
+        },
+        {
+          "name": "TikTok",
+          "rows": 1787,
+          "impressions": 10247659.0,
+          "clicks": 163972.0,
+          "spend": 3701867.89,
+          "conversions": 8531.0,
+          "revenue": 26018434.49,
+          "ctr": 1.6000922747331854,
+          "cpc": 22.576219659454054,
+          "cpa": 433.93129644824756,
+          "cvr": 5.2027175371404875,
+          "roas": 7.02846110750862,
+          "coverage": {
+            "impressions": 1.0,
+            "clicks": 1.0,
+            "spend": 1.0,
+            "conversions": 1.0,
+            "revenue": 1.0
+          }
+        },
+        {
+          "name": "YouTube",
+          "rows": 1339,
+          "impressions": 7477852.0,
+          "clicks": 112049.0,
+          "spend": 3047227.7,
+          "conversions": 5936.0,
+          "revenue": 19365964.52,
+          "ctr": 1.498411575944536,
+          "cpc": 27.195492150755474,
+          "cpa": 513.3469845013477,
+          "cvr": 5.297682264009495,
+          "roas": 6.355273194714001,
+          "coverage": {
+            "impressions": 1.0,
+            "clicks": 1.0,
+            "spend": 1.0,
+            "conversions": 1.0,
+            "revenue": 1.0
+          }
+        }
+      ]
+    }
+  ],
+  "completed_at": "2026-11-02T14:19:04.599746+00:00",
+  "benchmark_version": "2.0",
+  "generation_seconds": null,
+  "engine_pid": null
+}

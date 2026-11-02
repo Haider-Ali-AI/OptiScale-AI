@@ -1,0 +1,622 @@
+{
+  "checked_at": "2026-11-02T14:33:56.841Z",
+  "base": "http://127.0.0.1:3000",
+  "results": [
+    {
+      "route": "/",
+      "width": 320,
+      "status": 200,
+      "h1": "Where should the next rupee of ad spend go?",
+      "horizontal_overflow_px": 0,
+      "console_errors": []
+    },
+    {
+      "route": "/overview",
+      "width": 320,
+      "status": 200,
+      "h1": "Pakistan campaign demo",
+      "horizontal_overflow_px": 0,
+      "console_errors": []
+    },
+    {
+      "route": "/campaigns",
+      "width": 320,
+      "status": 200,
+      "h1": "Campaign & audience drill-down",
+      "horizontal_overflow_px": 0,
+      "console_errors": []
+    },
+    {
+      "route": "/data",
+      "width": 320,
+      "status": 200,
+      "h1": "Campaign data & provenance",
+      "horizontal_overflow_px": 0,
+      "console_errors": []
+    },
+    {
+      "route": "/budget",
+      "width": 320,
+      "status": 200,
+      "h1": "Plan an advisory budget",
+      "horizontal_overflow_px": 0,
+      "console_errors": []
+    },
+    {
+      "route": "/models",
+      "width": 320,
+      "status": 200,
+      "h1": "Revenue model validation",
+      "horizontal_overflow_px": 0,
+      "console_errors": []
+    },
+    {
+      "route": "/lab",
+      "width": 320,
+      "status": 200,
+      "h1": "Pandas vs MapReduce vs Spark",
+      "horizontal_overflow_px": 0,
+      "console_errors": []
+    },
+    {
+      "route": "/commerce",
+      "width": 320,
+      "status": 200,
+      "h1": "Store sales vs ad-reported revenue",
+      "horizontal_overflow_px": 0,
+      "console_errors": []
+    },
+    {
+      "route": "/assistant",
+      "width": 320,
+      "status": 200,
+      "h1": "Explain results in plain language",
+      "horizontal_overflow_px": 0,
+      "console_errors": []
+    },
+    {
+      "route": "/methodology",
+      "width": 320,
+      "status": 200,
+      "h1": "How SignalSpend calculates and decides",
+      "horizontal_overflow_px": 0,
+      "console_errors": []
+    },
+    {
+      "route": "/story",
+      "width": 320,
+      "status": 200,
+      "h1": "Project 2 walkthrough: requirement → screen → evidence",
+      "horizontal_overflow_px": 0,
+      "console_errors": []
+    },
+    {
+      "route": "/",
+      "width": 375,
+      "status": 200,
+      "h1": "Where should the next rupee of ad spend go?",
+      "horizontal_overflow_px": 0,
+      "console_errors": []
+    },
+    {
+      "route": "/overview",
+      "width": 375,
+      "status": 200,
+      "h1": "Pakistan campaign demo",
+      "horizontal_overflow_px": 0,
+      "console_errors": []
+    },
+    {
+      "route": "/campaigns",
+      "width": 375,
+      "status": 200,
+      "h1": "Campaign & audience drill-down",
+      "horizontal_overflow_px": 0,
+      "console_errors": []
+    },
+    {
+      "route": "/data",
+      "width": 375,
+      "status": 200,
+      "h1": "Campaign data & provenance",
+      "horizontal_overflow_px": 0,
+      "console_errors": []
+    },
+    {
+      "route": "/budget",
+      "width": 375,
+      "status": 200,
+      "h1": "Plan an advisory budget",
+      "horizontal_overflow_px": 0,
+      "console_errors": []
+    },
+    {
+      "route": "/models",
+      "width": 375,
+      "status": 200,
+      "h1": "Revenue model validation",
+      "horizontal_overflow_px": 0,
+      "console_errors": []
+    },
+    {
+      "route": "/lab",
+      "width": 375,
+      "status": 200,
+      "h1": "Pandas vs MapReduce vs Spark",
+      "horizontal_overflow_px": 0,
+      "console_errors": []
+    },
+    {
+      "route": "/commerce",
+      "width": 375,
+      "status": 200,
+      "h1": "Store sales vs ad-reported revenue",
+      "horizontal_overflow_px": 0,
+      "console_errors": []
+    },
+    {
+      "route": "/assistant",
+      "width": 375,
+      "status": 200,
+      "h1": "Explain results in plain language",
+      "horizontal_overflow_px": 0,
+      "console_errors": []
+    },
+    {
+      "route": "/methodology",
+      "width": 375,
+      "status": 200,
+      "h1": "How SignalSpend calculates and decides",
+      "horizontal_overflow_px": 0,
+      "console_errors": []
+    },
+    {
+      "route": "/story",
+      "width": 375,
+      "status": 200,
+      "h1": "Project 2 walkthrough: requirement → screen → evidence",
+      "horizontal_overflow_px": 0,
+      "console_errors": []
+    },
+    {
+      "route": "/",
+      "width": 430,
+      "status": 200,
+      "h1": "Where should the next rupee of ad spend go?",
+      "horizontal_overflow_px": 0,
+      "console_errors": []
+    },
+    {
+      "route": "/overview",
+      "width": 430,
+      "status": 200,
+      "h1": "Pakistan campaign demo",
+      "horizontal_overflow_px": 0,
+      "console_errors": []
+    },
+    {
+      "route": "/campaigns",
+      "width": 430,
+      "status": 200,
+      "h1": "Campaign & audience drill-down",
+      "horizontal_overflow_px": 0,
+      "console_errors": []
+    },
+    {
+      "route": "/data",
+      "width": 430,
+      "status": 200,
+      "h1": "Campaign data & provenance",
+      "horizontal_overflow_px": 0,
+      "console_errors": []
+    },
+    {
+      "route": "/budget",
+      "width": 430,
+      "status": 200,
+      "h1": "Plan an advisory budget",
+      "horizontal_overflow_px": 0,
+      "console_errors": []
+    },
+    {
+      "route": "/models",
+      "width": 430,
+      "status": 200,
+      "h1": "Revenue model validation",
+      "horizontal_overflow_px": 0,
+      "console_errors": []
+    },
+    {
+      "route": "/lab",
+      "width": 430,
+      "status": 200,
+      "h1": "Pandas vs MapReduce vs Spark",
+      "horizontal_overflow_px": 0,
+      "console_errors": []
+    },
+    {
+      "route": "/commerce",
+      "width": 430,
+      "status": 200,
+      "h1": "Store sales vs ad-reported revenue",
+      "horizontal_overflow_px": 0,
+      "console_errors": []
+    },
+    {
+      "route": "/assistant",
+      "width": 430,
+      "status": 200,
+      "h1": "Explain results in plain language",
+      "horizontal_overflow_px": 0,
+      "console_errors": []
+    },
+    {
+      "route": "/methodology",
+      "width": 430,
+      "status": 200,
+      "h1": "How SignalSpend calculates and decides",
+      "horizontal_overflow_px": 0,
+      "console_errors": []
+    },
+    {
+      "route": "/story",
+      "width": 430,
+      "status": 200,
+      "h1": "Project 2 walkthrough: requirement → screen → evidence",
+      "horizontal_overflow_px": 0,
+      "console_errors": []
+    },
+    {
+      "route": "/",
+      "width": 768,
+      "status": 200,
+      "h1": "Where should the next rupee of ad spend go?",
+      "horizontal_overflow_px": 0,
+      "console_errors": []
+    },
+    {
+      "route": "/overview",
+      "width": 768,
+      "status": 200,
+      "h1": "Pakistan campaign demo",
+      "horizontal_overflow_px": 0,
+      "console_errors": []
+    },
+    {
+      "route": "/campaigns",
+      "width": 768,
+      "status": 200,
+      "h1": "Campaign & audience drill-down",
+      "horizontal_overflow_px": 0,
+      "console_errors": []
+    },
+    {
+      "route": "/data",
+      "width": 768,
+      "status": 200,
+      "h1": "Campaign data & provenance",
+      "horizontal_overflow_px": 0,
+      "console_errors": []
+    },
+    {
+      "route": "/budget",
+      "width": 768,
+      "status": 200,
+      "h1": "Plan an advisory budget",
+      "horizontal_overflow_px": 0,
+      "console_errors": []
+    },
+    {
+      "route": "/models",
+      "width": 768,
+      "status": 200,
+      "h1": "Revenue model validation",
+      "horizontal_overflow_px": 0,
+      "console_errors": []
+    },
+    {
+      "route": "/lab",
+      "width": 768,
+      "status": 200,
+      "h1": "Pandas vs MapReduce vs Spark",
+      "horizontal_overflow_px": 0,
+      "console_errors": []
+    },
+    {
+      "route": "/commerce",
+      "width": 768,
+      "status": 200,
+      "h1": "Store sales vs ad-reported revenue",
+      "horizontal_overflow_px": 0,
+      "console_errors": []
+    },
+    {
+      "route": "/assistant",
+      "width": 768,
+      "status": 200,
+      "h1": "Explain results in plain language",
+      "horizontal_overflow_px": 0,
+      "console_errors": []
+    },
+    {
+      "route": "/methodology",
+      "width": 768,
+      "status": 200,
+      "h1": "How SignalSpend calculates and decides",
+      "horizontal_overflow_px": 0,
+      "console_errors": []
+    },
+    {
+      "route": "/story",
+      "width": 768,
+      "status": 200,
+      "h1": "Project 2 walkthrough: requirement → screen → evidence",
+      "horizontal_overflow_px": 0,
+      "console_errors": []
+    },
+    {
+      "route": "/",
+      "width": 1024,
+      "status": 200,
+      "h1": "Where should the next rupee of ad spend go?",
+      "horizontal_overflow_px": 0,
+      "console_errors": []
+    },
+    {
+      "route": "/overview",
+      "width": 1024,
+      "status": 200,
+      "h1": "Pakistan campaign demo",
+      "horizontal_overflow_px": 0,
+      "console_errors": []
+    },
+    {
+      "route": "/campaigns",
+      "width": 1024,
+      "status": 200,
+      "h1": "Campaign & audience drill-down",
+      "horizontal_overflow_px": 0,
+      "console_errors": []
+    },
+    {
+      "route": "/data",
+      "width": 1024,
+      "status": 200,
+      "h1": "Campaign data & provenance",
+      "horizontal_overflow_px": 0,
+      "console_errors": []
+    },
+    {
+      "route": "/budget",
+      "width": 1024,
+      "status": 200,
+      "h1": "Plan an advisory budget",
+      "horizontal_overflow_px": 0,
+      "console_errors": []
+    },
+    {
+      "route": "/models",
+      "width": 1024,
+      "status": 200,
+      "h1": "Revenue model validation",
+      "horizontal_overflow_px": 0,
+      "console_errors": []
+    },
+    {
+      "route": "/lab",
+      "width": 1024,
+      "status": 200,
+      "h1": "Pandas vs MapReduce vs Spark",
+      "horizontal_overflow_px": 0,
+      "console_errors": []
+    },
+    {
+      "route": "/commerce",
+      "width": 1024,
+      "status": 200,
+      "h1": "Store sales vs ad-reported revenue",
+      "horizontal_overflow_px": 0,
+      "console_errors": []
+    },
+    {
+      "route": "/assistant",
+      "width": 1024,
+      "status": 200,
+      "h1": "Explain results in plain language",
+      "horizontal_overflow_px": 0,
+      "console_errors": []
+    },
+    {
+      "route": "/methodology",
+      "width": 1024,
+      "status": 200,
+      "h1": "How SignalSpend calculates and decides",
+      "horizontal_overflow_px": 0,
+      "console_errors": []
+    },
+    {
+      "route": "/story",
+      "width": 1024,
+      "status": 200,
+      "h1": "Project 2 walkthrough: requirement → screen → evidence",
+      "horizontal_overflow_px": 0,
+      "console_errors": []
+    },
+    {
+      "route": "/",
+      "width": 1280,
+      "status": 200,
+      "h1": "Where should the next rupee of ad spend go?",
+      "horizontal_overflow_px": 0,
+      "console_errors": []
+    },
+    {
+      "route": "/overview",
+      "width": 1280,
+      "status": 200,
+      "h1": "Pakistan campaign demo",
+      "horizontal_overflow_px": 0,
+      "console_errors": []
+    },
+    {
+      "route": "/campaigns",
+      "width": 1280,
+      "status": 200,
+      "h1": "Campaign & audience drill-down",
+      "horizontal_overflow_px": 0,
+      "console_errors": []
+    },
+    {
+      "route": "/data",
+      "width": 1280,
+      "status": 200,
+      "h1": "Campaign data & provenance",
+      "horizontal_overflow_px": 0,
+      "console_errors": []
+    },
+    {
+      "route": "/budget",
+      "width": 1280,
+      "status": 200,
+      "h1": "Plan an advisory budget",
+      "horizontal_overflow_px": 0,
+      "console_errors": []
+    },
+    {
+      "route": "/models",
+      "width": 1280,
+      "status": 200,
+      "h1": "Revenue model validation",
+      "horizontal_overflow_px": 0,
+      "console_errors": []
+    },
+    {
+      "route": "/lab",
+      "width": 1280,
+      "status": 200,
+      "h1": "Pandas vs MapReduce vs Spark",
+      "horizontal_overflow_px": 0,
+      "console_errors": []
+    },
+    {
+      "route": "/commerce",
+      "width": 1280,
+      "status": 200,
+      "h1": "Store sales vs ad-reported revenue",
+      "horizontal_overflow_px": 0,
+      "console_errors": []
+    },
+    {
+      "route": "/assistant",
+      "width": 1280,
+      "status": 200,
+      "h1": "Explain results in plain language",
+      "horizontal_overflow_px": 0,
+      "console_errors": []
+    },
+    {
+      "route": "/methodology",
+      "width": 1280,
+      "status": 200,
+      "h1": "How SignalSpend calculates and decides",
+      "horizontal_overflow_px": 0,
+      "console_errors": []
+    },
+    {
+      "route": "/story",
+      "width": 1280,
+      "status": 200,
+      "h1": "Project 2 walkthrough: requirement → screen → evidence",
+      "horizontal_overflow_px": 0,
+      "console_errors": []
+    },
+    {
+      "route": "/",
+      "width": 1440,
+      "status": 200,
+      "h1": "Where should the next rupee of ad spend go?",
+      "horizontal_overflow_px": 0,
+      "console_errors": []
+    },
+    {
+      "route": "/overview",
+      "width": 1440,
+      "status": 200,
+      "h1": "Pakistan campaign demo",
+      "horizontal_overflow_px": 0,
+      "console_errors": []
+    },
+    {
+      "route": "/campaigns",
+      "width": 1440,
+      "status": 200,
+      "h1": "Campaign & audience drill-down",
+      "horizontal_overflow_px": 0,
+      "console_errors": []
+    },
+    {
+      "route": "/data",
+      "width": 1440,
+      "status": 200,
+      "h1": "Campaign data & provenance",
+      "horizontal_overflow_px": 0,
+      "console_errors": []
+    },
+    {
+      "route": "/budget",
+      "width": 1440,
+      "status": 200,
+      "h1": "Plan an advisory budget",
+      "horizontal_overflow_px": 0,
+      "console_errors": []
+    },
+    {
+      "route": "/models",
+      "width": 1440,
+      "status": 200,
+      "h1": "Revenue model validation",
+      "horizontal_overflow_px": 0,
+      "console_errors": []
+    },
+    {
+      "route": "/lab",
+      "width": 1440,
+      "status": 200,
+      "h1": "Pandas vs MapReduce vs Spark",
+      "horizontal_overflow_px": 0,
+      "console_errors": []
+    },
+    {
+      "route": "/commerce",
+      "width": 1440,
+      "status": 200,
+      "h1": "Store sales vs ad-reported revenue",
+      "horizontal_overflow_px": 0,
+      "console_errors": []
+    },
+    {
+      "route": "/assistant",
+      "width": 1440,
+      "status": 200,
+      "h1": "Explain results in plain language",
+      "horizontal_overflow_px": 0,
+      "console_errors": []
+    },
+    {
+      "route": "/methodology",
+      "width": 1440,
+      "status": 200,
+      "h1": "How SignalSpend calculates and decides",
+      "horizontal_overflow_px": 0,
+      "console_errors": []
+    },
+    {
+      "route": "/story",
+      "width": 1440,
+      "status": 200,
+      "h1": "Project 2 walkthrough: requirement → screen → evidence",
+      "horizontal_overflow_px": 0,
+      "console_errors": []
+    }
+  ]
+}

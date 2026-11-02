@@ -1,0 +1,10 @@
+fastapi>=0.115,<1
+pydantic>=2.10,<3
+numpy>=2,<3
+pandas>=2.2,<3
+pyarrow>=19,<30
+psutil>=7,<8
+xgboost-cpu>=3,<4
+scikit-learn>=1.7,<2
+scipy>=1.15,<2
+psycopg[binary]>=3.2,<4

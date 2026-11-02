@@ -1,0 +1,10 @@
+Name,Created at,Financial Status,Fulfillment Status,Currency,Subtotal,Discount Amount,Refunded Amount,Shipping,Taxes,Canceled at,Lineitem SKU,Lineitem quantity,Lineitem price,Lineitem discount,refunded_quantity,merchandise_refunds,shipping_refunded,campaign_id,account_id,platform,ad_touch_at,utm_source,utm_campaign,is_synthetic,Email,Billing Name
+#FIC-A,2026-01-01T10:00:00+05:00,paid,fulfilled,PKR,2250,250,0,100,0,,SKU-A,2,1000,0,0,0,0,fb-01,main,Facebook,2026-01-01T09:00:00+05:00,,,true,fictional-buyer@example.test,Fictional Buyer
+#FIC-A,,,,,,,,,,,SKU-A2,1,500,0,0,,,,,,,,,true,,
+#FIC-B,2026-01-02T10:00:00+05:00,partially_refunded,fulfilled,PKR,2000,0,550,100,0,,SKU-B,1,2000,0,0,500,50,g-01,main,Google,2026-01-01T09:00:00+05:00,,,true,fictional-buyer@example.test,Fictional Buyer
+#FIC-C,2026-01-03T10:00:00+05:00,refunded,fulfilled,PKR,1000,0,1000,0,0,,SKU-C,1,1000,0,1,1000,0,fb-01,main,Facebook,2026-01-03T09:00:00+05:00,,,true,fictional-buyer@example.test,Fictional Buyer
+#FIC-D,2026-01-02T10:00:00+05:00,paid,fulfilled,PKR,1200,0,0,0,0,2026-01-02T12:00:00+05:00,SKU-D,1,1200,0,0,0,0,fb-01,main,Facebook,2026-01-02T09:00:00+05:00,,,true,fictional-buyer@example.test,Fictional Buyer
+#FIC-E,2026-01-02T10:00:00+05:00,paid,fulfilled,PKR,800,0,0,0,0,,SKU-E,1,800,0,0,0,0,,,,,facebook.com,newsletter,true,fictional-buyer@example.test,Fictional Buyer
+#FIC-F,2026-01-02T10:00:00+05:00,paid,fulfilled,PKR,450,50,0,0,0,,SKU-F,1,500,0,0,0,0,shared-01,,Facebook,2026-01-02T09:00:00+05:00,,,true,fictional-buyer@example.test,Fictional Buyer
+#FIC-G,2026-01-03T10:00:00+05:00,paid,fulfilled,PKR,1400,100,0,50,0,,SKU-G,1,1500,0,0,0,0,,,,2026-01-03T09:00:00+05:00,merchant-google,winter-launch,true,fictional-buyer@example.test,Fictional Buyer
+#FIC-H,2026-01-03T10:00:00+05:00,pending,fulfilled,PKR,700,0,0,0,0,,SKU-H,1,700,0,0,0,0,,,,,,,true,fictional-buyer@example.test,Fictional Buyer

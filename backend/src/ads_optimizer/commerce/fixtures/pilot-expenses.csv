@@ -1,0 +1,9 @@
+order_id,cogs,payment_fees,fulfillment,packaging,other_variable_costs,currency,is_synthetic
+#FIC-A,1100,70,100,30,0,PKR,true
+#FIC-B,600,50,100,20,0,PKR,true
+#FIC-C,0,20,100,20,0,PKR,true
+#FIC-D,0,10,0,0,0,PKR,true
+#FIC-E,300,20,50,10,0,PKR,true
+#FIC-F,200,20,50,10,0,PKR,true
+#FIC-G,700,40,70,20,0,PKR,true
+#FIC-H,0,0,0,0,0,PKR,true

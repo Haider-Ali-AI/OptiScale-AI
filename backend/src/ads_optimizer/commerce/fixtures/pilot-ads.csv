@@ -1,0 +1,7 @@
+date,campaign,campaign_id,account_id,platform,spend,revenue,impressions,clicks,conversions,conversion_definition,attribution_window,is_synthetic
+2026-01-01,Fictional fb-01 main,fb-01,main,Facebook,150,2500,1000,100,5,purchases,7-day click,true
+2026-01-01,Fictional g-01 main,g-01,main,Google,200,3000,1000,100,5,purchases,7-day click,true
+2026-01-02,Fictional shared-01 one,shared-01,one,Facebook,150,500,1000,100,5,purchases,7-day click,true
+2026-01-02,Fictional shared-01 two,shared-01,two,Facebook,150,500,1000,100,5,purchases,7-day click,true
+2026-01-03,Fictional fb-01 main,fb-01,main,Facebook,150,2500,1000,100,5,purchases,7-day click,true
+2026-01-03,Fictional g-01 main,g-01,main,Google,200,3000,1000,100,5,purchases,7-day click,true
