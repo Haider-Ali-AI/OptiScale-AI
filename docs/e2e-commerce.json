@@ -1,0 +1,46 @@
+{
+  "checked_at": "2026-11-02T15:20:14.428Z",
+  "tag": "ui-qa-mvzenwtr",
+  "checks": [
+    {
+      "name": "Order CSV validates through the UI",
+      "ok": true,
+      "detail": "orders=8"
+    },
+    {
+      "name": "Order snapshot saved",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Cost snapshot saved and attached",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Comparison net sales equal the backend demo (Rs 6,400.00)",
+      "ok": true,
+      "detail": "Rs 6,400.00"
+    },
+    {
+      "name": "Matched store sales equal the backend demo (Rs 5,150.00)",
+      "ok": true,
+      "detail": "Rs 5,150.00"
+    },
+    {
+      "name": "Matching outcomes equal the backend demo (4/1/1/2)",
+      "ok": true,
+      "detail": "4/1/1/2"
+    },
+    {
+      "name": "Reference check shows zero differences",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "No uncaught page errors",
+      "ok": true,
+      "detail": ""
+    }
+  ]
+}

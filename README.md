@@ -4,7 +4,7 @@
 
 SignalSpend AI is a decision studio for students, marketers and small teams. It turns campaign history into weighted KPIs, measures Pandas vs MapReduce vs Spark on 10K–10M rows, trains and validates an XGBoost revenue model, and allocates a user-entered PKR budget exactly to the paisa within the user's limits, with every method, caveat and data source labelled.
 
-> **Provenance.** The Python/FastAPI backend is reused from [adnanf787/black-stone](https://github.com/adnanf787/black-stone) (commit `23e788e`) with one documented Windows fix. The frontend, design system, QA scripts and documentation in this repository are new. See [ATTRIBUTION.md](ATTRIBUTION.md). **The reference repo has no license; obtain the owner's written permission before publishing or submitting this code.**
+> **Provenance.** The Python/FastAPI backend is reused from [adnanf787/black-stone](https://github.com/adnanf787/black-stone) (commit `23e788e`) with two documented, test-first benchmark fixes. The frontend, design system, QA scripts and documentation in this repository are new. See [ATTRIBUTION.md](ATTRIBUTION.md). **The reference repo has no license; obtain the owner's written permission before publishing or submitting this code.**
 
 ![Executive overview](docs/screenshots/overview-1440.png)
 
@@ -13,12 +13,10 @@ SignalSpend AI is a decision studio for students, marketers and small teams. It 
 |---|---|
 | Synthetic seeded demo + authorized CSV import (preview → map → validate → confirm) | ✅ |
 | Weighted KPIs (CTR, CPC, CPA, CVR, ROAS, revenue), filters, grouping, exports | ✅ |
-| Big Data lab: Pandas + local MapReduce at 10K / 100K / 1M, 3 repeats, all parity-correct | ✅ |
-| Spark engine | ⛔ needs Java 17/21/25 (see setup) |
-| 10M-row run | ⏳ supported; run deliberately (long) |
+| Big Data lab: Pandas, local MapReduce and local Spark at 10K / 100K / 1M / 10M, 3 repeats each, all parity-correct | ✅ (Spark needs Java 17/21/25, see setup) |
 | XGBoost model: chronological split, baseline, acceptance gate, re-evaluation | ✅ |
 | Budget engine: PKR 1,000,000 exact-paisa plan, constraints, comparisons, CSV/JSON | ✅ |
-| Commerce CSV pilot (fictional fixtures), gated contribution plans | ✅ (own-CSV import screen not in this release; API supports it) |
+| Commerce: import own order/cost CSVs, UTM mappings, comparisons, gated contribution plans | ✅ (UI-tested with fictional fixtures; real merchant validation pending) |
 | NVIDIA explanation assistant (optional) | UI ready; live provider not verified (no key) |
 | Hosted Basic-auth guard (production build) | ✅ locally; Vercel deployment **not done** |
 
@@ -60,6 +58,7 @@ npm run check                  # tsc + eslint
 npm run build                  # production build
 npm run test:ui                # 11 routes × 7 widths: status, console errors, overflow, screenshots
 npm run test:e2e               # real browser journeys incl. PKR 1M exact plan
+npm run test:e2e:commerce      # order/cost CSV import + comparison through the UI
 ```
 The browser scripts use installed Microsoft Edge (`PW_CHANNEL=chrome` or `CHROMIUM_EXECUTABLE=…` to change). Results: [docs/test-report.md](docs/test-report.md).
 

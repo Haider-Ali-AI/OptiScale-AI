@@ -4,6 +4,7 @@ import { Download, FlaskConical, Trash2 } from "lucide-react";
 import { useCallback, useEffect, useState } from "react";
 import { api, errorText, isAbort, post, type CommerceMeta, type CommerceReport, type CommerceState, type ProfitPlan, type Row } from "@/lib/api";
 import { coverage, dateTime, NA, pct, pkr, ratio, shortId } from "@/lib/format";
+import { CommerceImport, NewComparison } from "./commerce-import";
 import { Busy, ConfirmDialog, Empty, Kpi, LoadingPage, Notice, PageHead, Panel, PlatformLabel, Segmented } from "./ui";
 
 /** Commerce reports store money in integer paisa. */
@@ -335,10 +336,9 @@ export function Commerce() {
         A CSV-based pilot that compares store orders with a separately chosen ad export: evidenced matches, unmatched and
         ambiguous orders, cost coverage and gated contribution profit. No Shopify or ad account is connected.
       </PageHead>
-      <Notice tone="info" title="What this release supports">
-        Fictional pilot and history datasets below run the real importer, reconciler and profit gates. Importing your own
-        order/cost CSVs and building custom UTM mappings is supported by the backend API (<code>/api/v1/commerce/imports/*</code>,{" "}
-        <code>/reconciliations</code>) but does not have a screen in this SignalSpend release yet.
+      <Notice tone="info" title="How this works">
+        Import your authorized order CSV (and optional cost CSVs), choose a campaign dataset from Data studio, then save a comparison.
+        The fictional flows below run the same real importer, reconciler and profit gates.
       </Notice>
       <Panel title="Try the verified pilot flows">
         <div className="btn-row">
@@ -353,6 +353,18 @@ export function Commerce() {
         {busy && <Busy text={busy} />}
         {error && <Notice tone="error">{error}</Notice>}
       </Panel>
+      {state && (
+        <>
+          <CommerceImport state={state} onSaved={async () => void (await load())} />
+          <NewComparison
+            state={state}
+            onCreated={async (id) => {
+              await load();
+              setSelected(id);
+            }}
+          />
+        </>
+      )}
       {state && state.reconciliation.length > 0 ? (
         <Panel title="Saved comparisons">
           <div className="grid" style={{ gap: 8 }}>

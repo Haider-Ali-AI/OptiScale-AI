@@ -1,24 +1,22 @@
 # Progress log
 
-## 2026-11-02 · Phases 0–4 (single session)
+## 2026-11-02 · Session 1: Phases 0–4 (commit cd86aad)
+- **Phase 0 audit · Verified.** Reference `23e788e` cloned to `../reference-source` (tag `baseline-audit-2026-11-02`, local only). Baseline pytest 193/11/1. Docs 01–05. Blocker: no license in source repo.
+- **Phase 1 product definition · Verified.** Sitemap, journeys, acceptance tables (06, 07). Legacy redirects.
+- **Phase 2 visual system · Verified.** New Next.js frontend, Flight Deck tokens, dark + light, shell, typed adapter.
+- **Phase 3 vertical slices · Verified.** All 11 screens.
+- **Phase 4 added value · Verified.** Story, funnel, matrix, trust panel, Explain my KPI, scenario review, exact-paisa check, story mode.
+- BC-1 backend fix.
 
-**Phase 0 — audit · Verified**
-Cloned reference `23e788e` to `../reference-source` (tag `baseline-audit-2026-11-02`, local only). Read assignment DOCX, README, AGENTS, docs, all routes and contracts. Baseline pytest 193/11/1 (env failures classified). Docs 01–05. Blocker: no license in source repo.
+## 2026-11-02 · Session 2: remaining items
+- **Spark · Verified.** Temurin JRE 17.0.20.1 (SHA-256 checked) in `../.runtime/`; original Spark parity test now passes on Windows.
+- **10M rows · Verified.** Full matrix: 4 scales × Pandas/MapReduce/Spark × 3 repeats, all parity-correct.
+- **BC-2 (F-1) · Verified.** Approved by user; test-first fix.
+- **T-1 · Verified.** Stale test date pinned.
+- **Commerce own-CSV import + comparison builder · Verified** with fictional fixtures through the UI (8/8).
+- Tests: pytest 197/9 (Windows-only)/1, ruff ✓, tsc+eslint ✓, build ✓, QA clean, E2E 10/10 + 8/8.
 
-**Phase 1 — product definition · Verified**
-Sitemap, journeys, acceptance tables, data mapping (docs 06, 07). Legacy route redirects.
-
-**Phase 2 — visual system & shell · Verified**
-New Next.js frontend (`frontend/app`, `components`, `lib`): Flight Deck tokens, dark + true light palette, no-flash theme, rail/drawer shell, live source picker, typed API adapter.
-
-**Phase 3 — vertical slices · Verified (except noted)**
-Welcome, Overview, Campaigns, Data studio (generate + full CSV wizard + datasets), Budget studio, ML studio, Big Data lab, Commerce (fixture flows; own-CSV import screen not built), Assistant (live call not verified), Methodology, Story.
-
-**Phase 4 — differentiated value · Verified**
-Performance story, funnel, opportunity matrix, data trust panel, Explain my KPI, scenario review, exact-paisa display check, University story with live evidence, print/export.
-
-**Backend changes:** BC-1 only (docs/08). F-1 proposed, awaiting approval.
-
-**Tests:** see docs/test-report.md: pytest 194/11(env)/1, ruff ✓, tsc+eslint ✓, build ✓, QA 77 route×width checks ✓, E2E 10/10 ✓, auth guard ✓.
-
-**Remaining:** Spark (needs JDK), 10M run, owner permission/licence, GitHub remote + Vercel deployment (accounts + permission), commerce own-CSV screen, NVIDIA live check, F-1 approval.
+## Still blocked (needs the user)
+- Owner's written permission or license (redistribution, GitHub push, Vercel, submission).
+- GitHub/Vercel/Neon accounts for deployment.
+- NVIDIA API key for the optional live explanation check.

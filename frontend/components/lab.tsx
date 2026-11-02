@@ -353,7 +353,7 @@ export function BigDataLab() {
               <label className="field">
                 Job type
                 <select className="select" value={cfg.kind} onChange={(e) => setCfg({ ...cfg, kind: e.target.value as ExperimentConfig["kind"] })}>
-                  <option value="benchmark">Generate/reuse input + benchmark</option>
+                  <option value="benchmark">Benchmark (reuses input)</option>
                   <option value="generate">Generate input only</option>
                 </select>
               </label>

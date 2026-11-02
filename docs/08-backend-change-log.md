@@ -1,6 +1,6 @@
 # 08 · Backend change log (protected area)
 
-Only one backend source change was made. Every other file under `backend/src` is byte-identical to reference commit `23e788e`.
+Two backend source changes were made (BC-1, BC-2), each with a failing test first, plus one test-only date fix (T-1). Every other file under `backend/src` is byte-identical to reference commit `23e788e`.
 
 ## BC-1 · Benchmark result publication fails on Windows
 
@@ -16,6 +16,19 @@ Only one backend source change was made. Every other file under `backend/src` is
 | Validation | New test passes; `test_benchmarks.py` 27 pass (the 2 failures are the pre-existing Java/SIGKILL environment cases); real 10K/100K/1M runs → all repeats completed and parity-correct |
 | Rollback | Revert the function to its original 3 lines; delete the test |
 
-## Open finding (not changed, needs approval)
-**F-1 · Non-terminal engine status inside a finished job.** `worker.measure_engine` downgrades only `completed` snapshots that fail the gate. If an engine process dies after publishing an intermediate `running` snapshot, that status is stored inside a `completed` job. Median stays `null`, so no timing is fabricated, but the report is misleading.
-Proposed patch: after the child exits, `if snapshot["status"] not in {"completed","failed"}: snapshot.update(status="failed", message="Engine exited before publishing all repeats.")`, plus a test with a runner that exits mid-way. Changes stored report semantics, so it awaits user approval. **Frontend mitigation already in place:** such results are displayed as "incomplete" with an explanation.
+## BC-2 · Engine that exits mid-run keeps a non-terminal status (finding F-1)
+
+Approved by the user on 2026-11-02 ("jo reh gya ha woh kro", following the F-1 approval request).
+
+| Field | Detail |
+|---|---|
+| File | `backend/src/ads_optimizer/benchmarks/worker.py`, `measure_engine()` |
+| Failing case | Engine publishes a `running` snapshot with 2 repeats, then exits with code 1 → result stayed `running` inside a `completed` job |
+| Reproduction | `backend/tests/test_engine_exit_status.py` (fake engine process) failed with `'running' == 'failed'` before the patch |
+| Patch | After the child exits, any status other than `completed`/`failed` becomes `failed` with "The engine exited before publishing all repeats…" |
+| Contract impact | Status values already include `failed`; no new fields. Medians stay `null` (unchanged) |
+| Validation | New test passes; `test_benchmarks.py` unchanged results (only the 2 Java/SIGKILL environment failures) |
+| Rollback | Remove the `elif` branch; delete the test |
+
+## T-1 · Stale date in an original test (test-only)
+`backend/tests/test_schema_recognition.py::test_weekly_upload_actual_training_without_optional_counts` relied on `as_of_date` defaulting to `date.today()` while hard-coding `start_date=2026-11-02`, so it fails from 2026-11-02. The test now pins `as_of_date=2026-10-29` (its model's training as-of). Backend code unchanged; the backend's rejection was correct.

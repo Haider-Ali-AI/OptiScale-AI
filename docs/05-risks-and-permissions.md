@@ -12,8 +12,7 @@ Current handling:
 ## Other risks
 | Risk | Severity | Mitigation |
 |---|---|---|
-| Spark not runnable (no JDK; network failed during download) | Medium (assignment needs Spark comparison) | Install Temurin 17 into `.runtime/` or set `JAVA_HOME`; `npm run dev` auto-detects; re-run lab |
-| 10M-row run not yet measured here | Medium | Run deliberately: Big Data lab → 10M (or API); expect minutes per engine |
+| Spark needs a Java runtime on each new machine | Low | Unzip Temurin 17 JRE into `.runtime/` (verified SHA-256) or set `JAVA_HOME`; `npm run dev` auto-detects |
 | Windows publication race in benchmark engine | High for Windows users (silent incomplete results) | Fixed with test (08); frontend also labels any non-terminal engine "incomplete" |
 | Synthetic results mistaken for real performance | High (academic integrity) | Synthetic badges on every screen, warnings, methodology |
 | Hosted Basic auth is single-owner, not multi-user | Medium | Documented; no claim of RBAC |

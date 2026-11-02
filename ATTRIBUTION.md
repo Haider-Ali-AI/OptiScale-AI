@@ -7,8 +7,8 @@ Repository: https://github.com/adnanf787/black-stone, commit `23e788ebfa796c83d0
 Reused in this repository:
 | Path | Origin | Modified? |
 |---|---|---|
-| `backend/src/ads_optimizer/**` | original | One function changed: `benchmarks/engine_runner.py::atomic_result` (Windows retry; see docs/08-backend-change-log.md) |
-| `backend/tests/**` (except `test_windows_atomic_result.py`) | original | No |
+| `backend/src/ads_optimizer/**` | original | Two functions changed: `benchmarks/engine_runner.py::atomic_result` (BC-1) and `benchmarks/worker.py::measure_engine` (BC-2); see docs/08-backend-change-log.md |
+| `backend/tests/**` (except the new `test_windows_atomic_result.py`, `test_engine_exit_status.py`) | original | One stale date pinned in `test_schema_recognition.py` (T-1) |
 | `pyproject.toml`, `requirements.lock.txt` | original | No |
 | `frontend/api/index.py`, `frontend/vercel.json`, `frontend/requirements.txt`, `frontend/tsconfig.json`, `frontend/postcss.config.mjs`, `frontend/eslint.config.mjs` | original config | No |
 | `frontend/proxy.ts`, `frontend/scripts/prepare-backend.mjs` | adapted from original | Realm text / comments only; same auth contract |
@@ -23,6 +23,7 @@ Permission record: _not yet received_ (date / form / link to be added here).
 ## Original contributions in this repository (SignalSpend AI)
 - Entirely new Next.js frontend: `frontend/app/**`, `frontend/components/**`, `frontend/lib/**` (typed API adapter, formatting), new visual identity and design tokens.
 - New features layered on existing APIs: Welcome onboarding, Marketing performance story, Campaign funnel, Platform opportunity matrix, Data trust panel, Explain my KPI, Budget scenario review, exact-paisa verification display, University story mode with live evidence checks.
-- Windows support: cross-platform launcher `scripts/dev.mjs`, the BC-1 backend fix with regression test.
+- Windows support: cross-platform launcher `scripts/dev.mjs`; BC-1/BC-2 backend fixes with regression tests.
+- Commerce order/cost import wizard and comparison builder UI (`frontend/components/commerce-import.tsx`).
 - QA tooling: `scripts/qa-screens.mjs`, `scripts/e2e-flows.mjs`.
 - All documentation under `docs/01–08`, architecture, deployment, limitations, test report.

@@ -1,0 +1,1919 @@
+{
+  "methodology": {
+    "workload": "platform_totals_v1",
+    "source": "Seeded synthetic campaigns only; PKR; configured dates and platforms.",
+    "timing": "Each repeat includes projected Parquet reads, aggregation, weighted rates and materialization of platform totals. Generation, checksums and engine setup are excluded and reported separately. No application cache or unreported warm-up.",
+    "setup": "Imports/session initialization (including JVM startup and mapper readiness) measured separately. No input is read as an unreported warm-up.",
+    "cache": "Sequential engine runs on one machine. OS/JVM caches are not flushed. Later repeats may benefit from warm caches; timings are not cluster benchmarks.",
+    "correctness": "Every repeat must match independent vector-mask reference sums recorded during generation. Row/non-null counts and scaled-integer sums match exactly; weighted float rates use absolute and relative tolerance 1e-9.",
+    "precision": "Money is summed as integer paisa; conversions as integer millionths. Incomplete metrics propagate null totals; zero denominators yield null rates.",
+    "memory": "Sampled sum of RSS for the engine process and its descendants (including Spark JVM and mapper processes), every 150 ms. Shared pages may be counted more than once and short peaks may be missed. This is not whole-system memory. Generation checks its own worker tree at chunk boundaries. Unmeasurable memory stays null.",
+    "resources": "One local job; 1\u20134 workers; 512\u20134096 MiB sampled memory ceiling; 10-minute engine / 30-minute job limits. Exceeding a limit stops the affected work. Pandas switches to bounded chunks when rows \u00d7 200 bytes exceed 40% of the chosen allowance. Native-library threads are bounded where supported.",
+    "cancellation": "Cooperative cancellation between generation chunks and during engine monitoring. Child processes are terminated; incomplete data is removed. Saved data and completed repeats remain. Jobs survive web-server reloads."
+  },
+  "id": "ffbeb213fa504497baa5ebf54395222a",
+  "status": "completed",
+  "stage": "done",
+  "created_at": "2026-11-02T15:08:18.501878+00:00",
+  "updated_at": "2026-11-02T15:10:36.924084+00:00",
+  "config": {
+    "kind": "benchmark",
+    "rows": 10000000,
+    "seed": 42,
+    "start_date": "2026-01-01",
+    "end_date": "2026-03-31",
+    "platforms": [
+      "Facebook",
+      "Instagram",
+      "Google",
+      "TikTok",
+      "YouTube"
+    ],
+    "chunk_rows": 50000,
+    "engines": [
+      "pandas",
+      "mapreduce",
+      "spark"
+    ],
+    "repeats": 3,
+    "workers": 2,
+    "memory_mib": 2048,
+    "dataset_id": null
+  },
+  "message": "Experiment finished. Review measured results and any engine failures or skips.",
+  "generated_rows": 10000000,
+  "cancel_requested": false,
+  "worker_pid": 28768,
+  "dataset": {
+    "id": "4d0d54fe3c8a4b439abd58bdf2030bf5",
+    "config_key": "04d1c4076848a1c055a504f0337ffd3418ac801af14331283e15e53d8cbba2b4",
+    "created_at": "2026-11-02T14:45:35.413391+00:00",
+    "is_synthetic": true,
+    "currency": "PKR",
+    "source": "synthetic_benchmark",
+    "rows": 10000000,
+    "bytes": 211038994,
+    "parts": 200,
+    "config": {
+      "rows": 10000000,
+      "seed": 42,
+      "start_date": "2026-01-01",
+      "end_date": "2026-03-31",
+      "platforms": [
+        "Facebook",
+        "Instagram",
+        "Google",
+        "TikTok",
+        "YouTube"
+      ],
+      "chunk_rows": 50000
+    },
+    "generator_version": "1.0-batched-v1",
+    "sha256": "79847087fcf5d0de52f4fabbbefd2f30d26ef3bf03b28611a2ca2b79ec3e579f",
+    "files": [
+      {
+        "file": "part-00000.parquet",
+        "sha256": "a8928040e192c036aa1756efdbb4af008cc50c5fd84fe83abca3f8f09eada30d",
+        "rows": 50000,
+        "bytes": 1058108
+      },
+      {
+        "file": "part-00001.parquet",
+        "sha256": "c9c436639e5df361cecaf9be90f8282153966e41f636861dcf4bb9176fb4596e",
+        "rows": 50000,
+        "bytes": 1052474
+      },
+      {
+        "file": "part-00002.parquet",
+        "sha256": "ebc21bc9a19ddcf8063f8d20c6168cc0a25081fe5ae2cac95f6f049836554192",
+        "rows": 50000,
+        "bytes": 1054515
+      },
+      {
+        "file": "part-00003.parquet",
+        "sha256": "6e91f664dcd51481e537d18c4bcdc3d9b7b8db3c70ace3df152ef8e13c1fb665",
+        "rows": 50000,
+        "bytes": 1050258
+      },
+      {
+        "file": "part-00004.parquet",
+        "sha256": "063521646543f3b5b6312005dd63eb5fdf3ef3fdc4ac8c9b9be7d8e0aa520ab6",
+        "rows": 50000,
+        "bytes": 1056035
+      },
+      {
+        "file": "part-00005.parquet",
+        "sha256": "83fb77de4a6f8428494e55c25748ae094bfdda17b2538bcf28e94d4ee0cbb58c",
+        "rows": 50000,
+        "bytes": 1055319
+      },
+      {
+        "file": "part-00006.parquet",
+        "sha256": "c5201ec527f65093157c495288415927858f06756c26b0c7e2ed0f06505e64b9",
+        "rows": 50000,
+        "bytes": 1055383
+      },
+      {
+        "file": "part-00007.parquet",
+        "sha256": "ef7e2f82d6e3eae7d3f325ee9520522b6a76e293bfe1d532ea3548a75a6dcbc0",
+        "rows": 50000,
+        "bytes": 1054922
+      },
+      {
+        "file": "part-00008.parquet",
+        "sha256": "6bba1ccb4df192693a55570a1b1b39c75f05f9c9bc35126f7ee79491909a889a",
+        "rows": 50000,
+        "bytes": 1056549
+      },
+      {
+        "file": "part-00009.parquet",
+        "sha256": "10c0cee52d350141238610e6e81e658c79cbdd09f776ba170f0507e33e61e035",
+        "rows": 50000,
+        "bytes": 1052741
+      },
+      {
+        "file": "part-00010.parquet",
+        "sha256": "f1fd9afb434b3654e0f11dfca089004e968ebdfd51dfcd74cb0526b601c29b0d",
+        "rows": 50000,
+        "bytes": 1051928
+      },
+      {
+        "file": "part-00011.parquet",
+        "sha256": "f5d61176ac98f760c1c50ceb2ca9d78f9ba0bd37639eab3a63e8a8d58b111529",
+        "rows": 50000,
+        "bytes": 1054961
+      },
+      {
+        "file": "part-00012.parquet",
+        "sha256": "97b885935682dc9184a6ebd697b03dd6e0199283f566cce41e6aa1a3caadc5be",
+        "rows": 50000,
+        "bytes": 1054688
+      },
+      {
+        "file": "part-00013.parquet",
+        "sha256": "a0b72ecb0c63e424b5491cc16aba0e336df4cabcd762170acc9db1cd99409733",
+        "rows": 50000,
+        "bytes": 1055695
+      },
+      {
+        "file": "part-00014.parquet",
+        "sha256": "96d2021ed5b3cfc28368b0f1ada9bdc699159b770e37a9a3ce8d1139f5907dac",
+        "rows": 50000,
+        "bytes": 1055406
+      },
+      {
+        "file": "part-00015.parquet",
+        "sha256": "aab11b90061a884fa7cbca42f6e56f10605ed87644778f3b778c5d39c99d087c",
+        "rows": 50000,
+        "bytes": 1057766
+      },
+      {
+        "file": "part-00016.parquet",
+        "sha256": "d431cc5173381a199ca702e2f506083858e0abb3e61bb0697533eec5e8eab126",
+        "rows": 50000,
+        "bytes": 1053724
+      },
+      {
+        "file": "part-00017.parquet",
+        "sha256": "56d3bd2416b185cd9a899bedcdbb64c74d23b3782311284348bd0668eeef0899",
+        "rows": 50000,
+        "bytes": 1054508
+      },
+      {
+        "file": "part-00018.parquet",
+        "sha256": "620451dcd35daa8486093170b0387fc07abd0e0e885bd765a797231160a652d8",
+        "rows": 50000,
+        "bytes": 1053662
+      },
+      {
+        "file": "part-00019.parquet",
+        "sha256": "cccc7bd84c6853e59adbaafc4c3ccbb2d75b4748ef947704b4acb784d68184bd",
+        "rows": 50000,
+        "bytes": 1054584
+      },
+      {
+        "file": "part-00020.parquet",
+        "sha256": "03f67a9ffa89777aadde70744859c1347d34a4280ea7b3d8d1e720f2c16d2dbc",
+        "rows": 50000,
+        "bytes": 1054100
+      },
+      {
+        "file": "part-00021.parquet",
+        "sha256": "83b5fdbd03c1acbd21190b8150dbbe0b3acb488cbbd4aa8b89c0426d5ce18a8e",
+        "rows": 50000,
+        "bytes": 1052919
+      },
+      {
+        "file": "part-00022.parquet",
+        "sha256": "08a1e5cb7acad00df433c260cbf35d1ede1d24fe38868ebc11b6eb338404c465",
+        "rows": 50000,
+        "bytes": 1055305
+      },
+      {
+        "file": "part-00023.parquet",
+        "sha256": "90fd570e73440b89edbb13d2ee455f09291a55a59a4ca5ecca8a9c52291c3e98",
+        "rows": 50000,
+        "bytes": 1056384
+      },
+      {
+        "file": "part-00024.parquet",
+        "sha256": "aa0ef8c1d25b4e041c6ef12e1ff8dface9cb23b7ae7a8ed82f692ccd2f1cfb3b",
+        "rows": 50000,
+        "bytes": 1054754
+      },
+      {
+        "file": "part-00025.parquet",
+        "sha256": "4945aebfc03a87ac59ed12f3081853d4c33f3486cf0aff471545afcaa1a176f0",
+        "rows": 50000,
+        "bytes": 1054717
+      },
+      {
+        "file": "part-00026.parquet",
+        "sha256": "7f16363b984e58fa7094e7e262f992bb28c658084a845c48f584ec4fce980034",
+        "rows": 50000,
+        "bytes": 1054121
+      },
+      {
+        "file": "part-00027.parquet",
+        "sha256": "88fb071c948d288bebc044fc6f824e4608917dfc82d0ac18814ad94e2c7ed304",
+        "rows": 50000,
+        "bytes": 1058253
+      },
+      {
+        "file": "part-00028.parquet",
+        "sha256": "6d0f75b052b5eeaf32b0289a8b9a857953c2af014646dc7838347734bfd6efcd",
+        "rows": 50000,
+        "bytes": 1054443
+      },
+      {
+        "file": "part-00029.parquet",
+        "sha256": "affb399a5c2d459a1142f0f0046f902fec6dd1a5e96ffea380ed00aad683607a",
+        "rows": 50000,
+        "bytes": 1056778
+      },
+      {
+        "file": "part-00030.parquet",
+        "sha256": "df75351793574ebbf352f27a480503ffccbd448ac9ba7880face2bd5e4737a07",
+        "rows": 50000,
+        "bytes": 1051530
+      },
+      {
+        "file": "part-00031.parquet",
+        "sha256": "63b9f7f53bd4ca65f1f4fcdcb254453e5ffa2d577057513f47adf946f433a455",
+        "rows": 50000,
+        "bytes": 1052004
+      },
+      {
+        "file": "part-00032.parquet",
+        "sha256": "f62238a31e5ffa7b727f304ec94e0a2f4e60b42c2a7cc28dfe716dcc9f53ef02",
+        "rows": 50000,
+        "bytes": 1055246
+      },
+      {
+        "file": "part-00033.parquet",
+        "sha256": "d653f61187b67e947b6369c858201ec710b6cba9a5d623dfd3bb3d6100251031",
+        "rows": 50000,
+        "bytes": 1054305
+      },
+      {
+        "file": "part-00034.parquet",
+        "sha256": "33a69592fcbbc91a97aca90db8c5cd112c995150a156d3b17a3a397b925ae1aa",
+        "rows": 50000,
+        "bytes": 1051671
+      },
+      {
+        "file": "part-00035.parquet",
+        "sha256": "c8d79345323a13b9fed02066e93bec6537311c390b0e75e277ff5fb457467a34",
+        "rows": 50000,
+        "bytes": 1056200
+      },
+      {
+        "file": "part-00036.parquet",
+        "sha256": "bbae39d04ef883283ead736a8cc574b68ef5c736bd5412e4c562c101b4d360f8",
+        "rows": 50000,
+        "bytes": 1054372
+      },
+      {
+        "file": "part-00037.parquet",
+        "sha256": "579241619a5e498526b88c3acd93c45523304e6f7db3d3e4e44f144974dda7ba",
+        "rows": 50000,
+        "bytes": 1051480
+      },
+      {
+        "file": "part-00038.parquet",
+        "sha256": "7b43f85d75ae9644b5695726dcf30bf460644c8a50f04b3918a1fba6968e722d",
+        "rows": 50000,
+        "bytes": 1055238
+      },
+      {
+        "file": "part-00039.parquet",
+        "sha256": "8d7ca76fe7a35566d2e5318908c684cc0c9e76d7d866ea2e0578f3d2ba1edab0",
+        "rows": 50000,
+        "bytes": 1054563
+      },
+      {
+        "file": "part-00040.parquet",
+        "sha256": "ba751a83e0fc39747f83fde9e1b73a87cd6d1940ea5104eb5426de844a2da3f3",
+        "rows": 50000,
+        "bytes": 1053409
+      },
+      {
+        "file": "part-00041.parquet",
+        "sha256": "a886f25d9ab50565d15ad8e76f89e4db07b8f54e4c5957edcf2034535828b753",
+        "rows": 50000,
+        "bytes": 1056570
+      },
+      {
+        "file": "part-00042.parquet",
+        "sha256": "0a5fd7442a2960ecfe4610937fc750b22eb4716006277faad0dd6f0b0c110289",
+        "rows": 50000,
+        "bytes": 1052811
+      },
+      {
+        "file": "part-00043.parquet",
+        "sha256": "a92f21b1088c255e07acd5ce81443e82c20fdc4c87ab1f6b3646232381e0808c",
+        "rows": 50000,
+        "bytes": 1052754
+      },
+      {
+        "file": "part-00044.parquet",
+        "sha256": "7cdbc586324f43e67629390fe0241e070fd1fd731eef765ba163c88c9a16d2f4",
+        "rows": 50000,
+        "bytes": 1056976
+      },
+      {
+        "file": "part-00045.parquet",
+        "sha256": "e9eab8a4ccd99df641f9a455b5bb2185fbc090e97637f450f12db08525961bcf",
+        "rows": 50000,
+        "bytes": 1056854
+      },
+      {
+        "file": "part-00046.parquet",
+        "sha256": "20c1eea9a3938d180b0d4f992a4cbb39c3ca0e73d3c4691a496e486edf4ed3cf",
+        "rows": 50000,
+        "bytes": 1055363
+      },
+      {
+        "file": "part-00047.parquet",
+        "sha256": "caebed9e388b94b0239681d007baaf76d8ecc68973a01237192794fa933a8d6e",
+        "rows": 50000,
+        "bytes": 1056612
+      },
+      {
+        "file": "part-00048.parquet",
+        "sha256": "563aed0f808a5c5180b60ee943162154891a95ecaf4a1a64044d8ebce3fdbbe7",
+        "rows": 50000,
+        "bytes": 1052466
+      },
+      {
+        "file": "part-00049.parquet",
+        "sha256": "16fa615356924a49246398cedcb7ab4aec7ac50984b8991af163b58c73576d83",
+        "rows": 50000,
+        "bytes": 1052584
+      },
+      {
+        "file": "part-00050.parquet",
+        "sha256": "462410ecddd0cbd323a46b74803b8a1b12c8ef6ad71dd0bf214b7cedb7fc5074",
+        "rows": 50000,
+        "bytes": 1056925
+      },
+      {
+        "file": "part-00051.parquet",
+        "sha256": "348bbbbff6df19cdb99a39a915a0d3d24f66a1e63690d866c8c607262b3f3787",
+        "rows": 50000,
+        "bytes": 1056199
+      },
+      {
+        "file": "part-00052.parquet",
+        "sha256": "8e66d7a5e365457b0156cb4527f4dd1b6738ad7bb08503d459b5cd1bf89921d1",
+        "rows": 50000,
+        "bytes": 1054402
+      },
+      {
+        "file": "part-00053.parquet",
+        "sha256": "3a2ac38fb034661ada08fee2910681a9675e801892850582eb1b63a5c881d7c8",
+        "rows": 50000,
+        "bytes": 1057720
+      },
+      {
+        "file": "part-00054.parquet",
+        "sha256": "4dd84da8cf26d208dfbe453466e8b46d086225e24e00f99b58a11ac195979efe",
+        "rows": 50000,
+        "bytes": 1056830
+      },
+      {
+        "file": "part-00055.parquet",
+        "sha256": "e190e4084d0743e3abe751a5132b2dd81f1974f9a66ce9211eeea60f31023c69",
+        "rows": 50000,
+        "bytes": 1056553
+      },
+      {
+        "file": "part-00056.parquet",
+        "sha256": "39d1995ef453cb9b0da0352609c376ee6fc7635297466451e3ec9d7560435a98",
+        "rows": 50000,
+        "bytes": 1058096
+      },
+      {
+        "file": "part-00057.parquet",
+        "sha256": "3b6b647f32f582484a6503d7d23495a91ca01a97f1645563ce55bc2d0fe4072f",
+        "rows": 50000,
+        "bytes": 1053453
+      },
+      {
+        "file": "part-00058.parquet",
+        "sha256": "db34c3870ae85bd6a66694cb766bb34f43c11237cfe6d0aebf1149455bead2a6",
+        "rows": 50000,
+        "bytes": 1052729
+      },
+      {
+        "file": "part-00059.parquet",
+        "sha256": "c1934e4c74d1a3a88b49d44f46982ffec6a25e74d8508b8769f06b56db7b171c",
+        "rows": 50000,
+        "bytes": 1055634
+      },
+      {
+        "file": "part-00060.parquet",
+        "sha256": "8dd9247dce430b3d0bcf353cb7fc64db6ff98812cd8a90e50ef135f7d107e4f5",
+        "rows": 50000,
+        "bytes": 1057705
+      },
+      {
+        "file": "part-00061.parquet",
+        "sha256": "533e94f9074ad37d842c6ed616307228cb7538b8ebc2b258b596f9272a8c48b5",
+        "rows": 50000,
+        "bytes": 1056797
+      },
+      {
+        "file": "part-00062.parquet",
+        "sha256": "faafdaae91a0dff274ab23cf7ac5a6f409a4a992c745b53cab73c1af346035e8",
+        "rows": 50000,
+        "bytes": 1057512
+      },
+      {
+        "file": "part-00063.parquet",
+        "sha256": "405dad7a3f9a445d57244e743c4bc9af356e44f631f38c74f3d1f0ae4142d779",
+        "rows": 50000,
+        "bytes": 1057512
+      },
+      {
+        "file": "part-00064.parquet",
+        "sha256": "f1bf6de36fa30dace835b254cfa78212fca0d74b34abcfc7fdc3e01dec686329",
+        "rows": 50000,
+        "bytes": 1056795
+      },
+      {
+        "file": "part-00065.parquet",
+        "sha256": "fe9ced265a809d5d76a5eebd3917f0906a95822f19d0c124998400dee554c19a",
+        "rows": 50000,
+        "bytes": 1057729
+      },
+      {
+        "file": "part-00066.parquet",
+        "sha256": "8bddc69ec0fbf51ac7322da1f5a673458f53e6618ae41ccc439b164035057f4d",
+        "rows": 50000,
+        "bytes": 1058172
+      },
+      {
+        "file": "part-00067.parquet",
+        "sha256": "3f229ddbc731c410430ea05fdc983be45a4a14c747ba0951cb90657296eca002",
+        "rows": 50000,
+        "bytes": 1055540
+      },
+      {
+        "file": "part-00068.parquet",
+        "sha256": "28af0a128c47f4ce6a4a3004669828ed86d990a1b2bb8ffa9e221df7bbb1525f",
+        "rows": 50000,
+        "bytes": 1053599
+      },
+      {
+        "file": "part-00069.parquet",
+        "sha256": "13e9df9c4c01001a062bdd992ef5f8323496193db5c5add31fbffd3fb4f09c8c",
+        "rows": 50000,
+        "bytes": 1057287
+      },
+      {
+        "file": "part-00070.parquet",
+        "sha256": "44ce165eef4aab1b4a2cd30c1d5b4babc77880e9ee407feed0d5d42851487fc5",
+        "rows": 50000,
+        "bytes": 1056536
+      },
+      {
+        "file": "part-00071.parquet",
+        "sha256": "9fccf3b5f58f924546c83f190de67168f39416a49e9bc36328ec0e6e16027521",
+        "rows": 50000,
+        "bytes": 1054905
+      },
+      {
+        "file": "part-00072.parquet",
+        "sha256": "0c0726e88eefa2c2ac9762ad8db2ed90df75086c54e77beed5b5f69811827fdb",
+        "rows": 50000,
+        "bytes": 1054184
+      },
+      {
+        "file": "part-00073.parquet",
+        "sha256": "425dd6171e8fb55a85a7b8717a11dc3327bf17e81e00b869b19324c30fafbdaf",
+        "rows": 50000,
+        "bytes": 1055844
+      },
+      {
+        "file": "part-00074.parquet",
+        "sha256": "f6e2e2ba4e84f7e7a24f40a1433141704efd5c0ed6de36166d2889941b440fc2",
+        "rows": 50000,
+        "bytes": 1052109
+      },
+      {
+        "file": "part-00075.parquet",
+        "sha256": "a266f68753790d4ca04fb3297db42232cf8fcbba4fbc03163817a569c879b1b1",
+        "rows": 50000,
+        "bytes": 1054967
+      },
+      {
+        "file": "part-00076.parquet",
+        "sha256": "77498e6e2a4cd66828365164f42cdfebe7d1c3e156f63510ddaa66d5d5f8f6a2",
+        "rows": 50000,
+        "bytes": 1056389
+      },
+      {
+        "file": "part-00077.parquet",
+        "sha256": "4a533a577b50f1a4f14ccf8f0164a9ac972fc34c2fcc805a6ec9eaaa6c30adef",
+        "rows": 50000,
+        "bytes": 1051783
+      },
+      {
+        "file": "part-00078.parquet",
+        "sha256": "48f2cc345ac3ea1aeb9090cd8a0681ae808937c26c94363f46646280b8f168a4",
+        "rows": 50000,
+        "bytes": 1055228
+      },
+      {
+        "file": "part-00079.parquet",
+        "sha256": "e11e6740e217fe7d4f056f5a8c2502e4b9198ebd8a6a7fe4f6ae7f8ee93d46a5",
+        "rows": 50000,
+        "bytes": 1054199
+      },
+      {
+        "file": "part-00080.parquet",
+        "sha256": "29011a1454a20e4547121f397fba9e431d6641b76f36fbad3c3f486fe2c0d561",
+        "rows": 50000,
+        "bytes": 1057528
+      },
+      {
+        "file": "part-00081.parquet",
+        "sha256": "98b78d4068a8c6a7a3ce61cdff4baf5afd258297fc1cdfbc5bb97896d6b5209c",
+        "rows": 50000,
+        "bytes": 1057117
+      },
+      {
+        "file": "part-00082.parquet",
+        "sha256": "8d8c52511c9a67115b9f93157a2f1bc11ec6bc8ada1edafd6692e93c9e0dc00a",
+        "rows": 50000,
+        "bytes": 1057068
+      },
+      {
+        "file": "part-00083.parquet",
+        "sha256": "f362375dc423fbe90877406e19347ab8d9ec8bbeff8cbb6007a59f0b3129415d",
+        "rows": 50000,
+        "bytes": 1054125
+      },
+      {
+        "file": "part-00084.parquet",
+        "sha256": "4b0a5efd582bc65d58ef3ce3a6788460a7f2f06afcf6c90220aa221232e9d505",
+        "rows": 50000,
+        "bytes": 1055429
+      },
+      {
+        "file": "part-00085.parquet",
+        "sha256": "09b897575f0f3deb5b5b2dc56ec38a5f3ea24c3664d3e23d293b3d06fc6771a7",
+        "rows": 50000,
+        "bytes": 1057047
+      },
+      {
+        "file": "part-00086.parquet",
+        "sha256": "529e9df03d30933141ea592843045e2d6e69b4df3cfc43088c93b893e80253f6",
+        "rows": 50000,
+        "bytes": 1053244
+      },
+      {
+        "file": "part-00087.parquet",
+        "sha256": "4dfcfdae44416684b3443737ab7824d11cc272a58bdff30ec5cdc486468fea68",
+        "rows": 50000,
+        "bytes": 1056934
+      },
+      {
+        "file": "part-00088.parquet",
+        "sha256": "175e1e6d19b5c0ecc00db95626ef8cfd7fbd0e383507b140d1430c1001f7b147",
+        "rows": 50000,
+        "bytes": 1055669
+      },
+      {
+        "file": "part-00089.parquet",
+        "sha256": "8c954aeb3bc6d367cc255f16da27510d7a97d169f4b4cde976170e8d49bab2a1",
+        "rows": 50000,
+        "bytes": 1057985
+      },
+      {
+        "file": "part-00090.parquet",
+        "sha256": "431731f63ec3061a78f4cf12950a823cf5e9951a8fae09a8799eb2fb6fcaf510",
+        "rows": 50000,
+        "bytes": 1053729
+      },
+      {
+        "file": "part-00091.parquet",
+        "sha256": "cfaa1bc95328fef638aa1e4df674ffa6bebd5614aa33ac700fdd981e968b8bce",
+        "rows": 50000,
+        "bytes": 1056255
+      },
+      {
+        "file": "part-00092.parquet",
+        "sha256": "ea5f19737e53e39f6e60fc05097b8a138dc16b668e43faaad1f210c53c893f80",
+        "rows": 50000,
+        "bytes": 1055986
+      },
+      {
+        "file": "part-00093.parquet",
+        "sha256": "456ae198f0e205a63909dc15eb2c885b8f84fd8b165420032b5d36eaa92a6cd1",
+        "rows": 50000,
+        "bytes": 1051883
+      },
+      {
+        "file": "part-00094.parquet",
+        "sha256": "89515127031e22d2d3a0ca7b9c391977c425624fdf13e09b3ac31289bac680ee",
+        "rows": 50000,
+        "bytes": 1052657
+      },
+      {
+        "file": "part-00095.parquet",
+        "sha256": "a28956dcb0be405459647b48fb36fe07889efb16f7eead017928a4dcf5f9bd62",
+        "rows": 50000,
+        "bytes": 1055942
+      },
+      {
+        "file": "part-00096.parquet",
+        "sha256": "b670bfdf95831b4798a999ac38e6c5edc661d3c5ecb0ea2d164c650df4f6e486",
+        "rows": 50000,
+        "bytes": 1055918
+      },
+      {
+        "file": "part-00097.parquet",
+        "sha256": "de2dc2f1cc7f60cf7736cc97e3947902cdd1bf0e9787b8b743984bb14e319be1",
+        "rows": 50000,
+        "bytes": 1054201
+      },
+      {
+        "file": "part-00098.parquet",
+        "sha256": "a30418882977e87bdba9d285e0d0441365fca8603a49dce5ad32b390287fb7ad",
+        "rows": 50000,
+        "bytes": 1057218
+      },
+      {
+        "file": "part-00099.parquet",
+        "sha256": "2cf6f257418d022d0762bb5738ac3ae1995fdc7d619d073621ce6d450891e6b5",
+        "rows": 50000,
+        "bytes": 1054551
+      },
+      {
+        "file": "part-00100.parquet",
+        "sha256": "1e113f2e61c82f9dbc173bb964e5e8d8d226d1882126f62d8bf8181468eb4451",
+        "rows": 50000,
+        "bytes": 1057071
+      },
+      {
+        "file": "part-00101.parquet",
+        "sha256": "45f297619c0fbf82bcef740bfbfd04b75461d8e15564ca0145e0be5a7f3604a1",
+        "rows": 50000,
+        "bytes": 1057059
+      },
+      {
+        "file": "part-00102.parquet",
+        "sha256": "f591fbeb4c151aa9cfa133b30168da58c0d89df1a3faa1c8177182bc3927682c",
+        "rows": 50000,
+        "bytes": 1054611
+      },
+      {
+        "file": "part-00103.parquet",
+        "sha256": "520c40f30d3138b01085b0710c7459c3a87d3c5baaa1cae7795c439a3ffe96c5",
+        "rows": 50000,
+        "bytes": 1051627
+      },
+      {
+        "file": "part-00104.parquet",
+        "sha256": "d934a9fae088e26732b37e7b557e58da9c48c6629cb5853fe0ad0fc0fd2e6b91",
+        "rows": 50000,
+        "bytes": 1060627
+      },
+      {
+        "file": "part-00105.parquet",
+        "sha256": "0d445857546dd0bb99509c5bce8bb9b85be56c7f3f90fc9175c9e75636a9ecf7",
+        "rows": 50000,
+        "bytes": 1054545
+      },
+      {
+        "file": "part-00106.parquet",
+        "sha256": "7ffe4a8582a22be8c6aab18923697833c9efaa5eed7f949850fc4b462193f892",
+        "rows": 50000,
+        "bytes": 1055249
+      },
+      {
+        "file": "part-00107.parquet",
+        "sha256": "41cdcb4b3e13edac3b088cc9b71ba1e7ebd62eb8ad5af9ca2247839835fac227",
+        "rows": 50000,
+        "bytes": 1055554
+      },
+      {
+        "file": "part-00108.parquet",
+        "sha256": "637a20ec18da2bcdd60ebb408fea8bae0afbd3ba76adcc6f218ec2b13d292c0b",
+        "rows": 50000,
+        "bytes": 1053095
+      },
+      {
+        "file": "part-00109.parquet",
+        "sha256": "bc1e26b4277f741d96fbe848861eabd74730cbd62bc651f86aa187c8846f2f8b",
+        "rows": 50000,
+        "bytes": 1056834
+      },
+      {
+        "file": "part-00110.parquet",
+        "sha256": "287dcba24f832eb921919df71d1d8451cd53e1687a495feb91ae3a368d54ef6c",
+        "rows": 50000,
+        "bytes": 1053758
+      },
+      {
+        "file": "part-00111.parquet",
+        "sha256": "66f9fb497e46c8208a1b9b6b55364585cd66da8f8c540c220f2362be48fab3b4",
+        "rows": 50000,
+        "bytes": 1059083
+      },
+      {
+        "file": "part-00112.parquet",
+        "sha256": "18ed791d6fbafa008043b33d03a197bdcd81c760d63e1a04bf8f049ad9dc3c45",
+        "rows": 50000,
+        "bytes": 1053421
+      },
+      {
+        "file": "part-00113.parquet",
+        "sha256": "006bc4382ab0d35411351c072c51f213a4cc1b83218e5957adfcc2e7052565b9",
+        "rows": 50000,
+        "bytes": 1054106
+      },
+      {
+        "file": "part-00114.parquet",
+        "sha256": "1421c88db5a1334a97b2197feeee89560d600990db642deccd9e8fec0953ca0c",
+        "rows": 50000,
+        "bytes": 1055891
+      },
+      {
+        "file": "part-00115.parquet",
+        "sha256": "71bba56c5e4d8b0b59f8e09ecb8a6a7dd75fdda41e2b63fe04970601b7e8add7",
+        "rows": 50000,
+        "bytes": 1057199
+      },
+      {
+        "file": "part-00116.parquet",
+        "sha256": "4904e432b9fd8bff6770720a7152eb7d402ae9bc199cce6abacf04c11541741a",
+        "rows": 50000,
+        "bytes": 1056676
+      },
+      {
+        "file": "part-00117.parquet",
+        "sha256": "06074e874e02d630a95cfd45070e5465f3cddd9bbb90ed336ea349aae6d6c346",
+        "rows": 50000,
+        "bytes": 1056033
+      },
+      {
+        "file": "part-00118.parquet",
+        "sha256": "3894373d745460f3335d57eb7b9a8367e4b28a87e81e388c820c68083e2f344d",
+        "rows": 50000,
+        "bytes": 1055174
+      },
+      {
+        "file": "part-00119.parquet",
+        "sha256": "a717c2bd5fc3c93dbdc308492a06edfb6a9e95e5f52311bee50895edcf82146a",
+        "rows": 50000,
+        "bytes": 1053855
+      },
+      {
+        "file": "part-00120.parquet",
+        "sha256": "2c0aafbc6a1c1e90dab2c8bb609f3156c87e44e6b6df39b0991d88c5389f85c2",
+        "rows": 50000,
+        "bytes": 1058518
+      },
+      {
+        "file": "part-00121.parquet",
+        "sha256": "1771f4175d865b78772547d9a041e76496db4d460c2ec3f9750eca720adfe8bb",
+        "rows": 50000,
+        "bytes": 1057019
+      },
+      {
+        "file": "part-00122.parquet",
+        "sha256": "6114230495c47c1c47f1fa8251947075d6a5633898ad4190bc4df401328d4437",
+        "rows": 50000,
+        "bytes": 1055229
+      },
+      {
+        "file": "part-00123.parquet",
+        "sha256": "389b18914d717d28559f7b7dd015f7baca8d20ba5cc2d895638c69d3047bfdc5",
+        "rows": 50000,
+        "bytes": 1056570
+      },
+      {
+        "file": "part-00124.parquet",
+        "sha256": "7a966ac4b87d7dc56ebef67f593604a6961d214511eb780a8d13c208d9c8c995",
+        "rows": 50000,
+        "bytes": 1054640
+      },
+      {
+        "file": "part-00125.parquet",
+        "sha256": "9a4fc67f98da835f1eb95e76c6077a1a134c842874d2560019e28c3ed7c779f9",
+        "rows": 50000,
+        "bytes": 1054686
+      },
+      {
+        "file": "part-00126.parquet",
+        "sha256": "c4520f477eeedc5a75cc87e97d7f4aff96946ab662248c0456b12a902fee69e0",
+        "rows": 50000,
+        "bytes": 1053889
+      },
+      {
+        "file": "part-00127.parquet",
+        "sha256": "acd4c702e7c88a007f90de49a70cc8342ebe4c1033687b034b8c18151b4d5530",
+        "rows": 50000,
+        "bytes": 1053533
+      },
+      {
+        "file": "part-00128.parquet",
+        "sha256": "bce4c06c4b70d369814572c94c7d1d7543faa1c884f4a828ddff4e86d5720d30",
+        "rows": 50000,
+        "bytes": 1053620
+      },
+      {
+        "file": "part-00129.parquet",
+        "sha256": "b8f3f280c04d920b8fef9a67853e138c680324797001d8e30749646c79d79e47",
+        "rows": 50000,
+        "bytes": 1056984
+      },
+      {
+        "file": "part-00130.parquet",
+        "sha256": "21e9c2763c671e55d09a7da15faff47ba49c6395805a3a702bda095591ea02fd",
+        "rows": 50000,
+        "bytes": 1054870
+      },
+      {
+        "file": "part-00131.parquet",
+        "sha256": "d6c275e8c0782c7e0b55953fc9b1660cd615e08b49cfbde376abbabd0f296bd2",
+        "rows": 50000,
+        "bytes": 1057801
+      },
+      {
+        "file": "part-00132.parquet",
+        "sha256": "002f965a5fb3eb167a2158eddb2edab741e5047d637f1b2819fb342d56ae9713",
+        "rows": 50000,
+        "bytes": 1057230
+      },
+      {
+        "file": "part-00133.parquet",
+        "sha256": "fcf567b9f7330ebb9d44e1b759734fe7cb8e6afad6ba590667681c4143e67358",
+        "rows": 50000,
+        "bytes": 1055876
+      },
+      {
+        "file": "part-00134.parquet",
+        "sha256": "ec35e3ef7f8d8257063d52503eeaa20370bc228e5e8f55be858965135890f427",
+        "rows": 50000,
+        "bytes": 1055984
+      },
+      {
+        "file": "part-00135.parquet",
+        "sha256": "778c1e1654069c12d2f97618ac285a713cb2dffa2938c2fcc364b8bfd0ab9785",
+        "rows": 50000,
+        "bytes": 1057725
+      },
+      {
+        "file": "part-00136.parquet",
+        "sha256": "3158d4c1f6899a2edb7cda938acb913625b4de1588759accac5c6c335ea83a84",
+        "rows": 50000,
+        "bytes": 1054554
+      },
+      {
+        "file": "part-00137.parquet",
+        "sha256": "da4810df6a9ae52c6a3c9f79358820b20c107f38505a9c907391801bcfe2847c",
+        "rows": 50000,
+        "bytes": 1052019
+      },
+      {
+        "file": "part-00138.parquet",
+        "sha256": "27cd4bb381d91df141339501d74e70cf9b43b2e411633b7c0e32ee0d8671420b",
+        "rows": 50000,
+        "bytes": 1057547
+      },
+      {
+        "file": "part-00139.parquet",
+        "sha256": "5b74b78a5d7cb80c9ef79f6b6653dda754bfe29f913d5e3de5d106426c10a939",
+        "rows": 50000,
+        "bytes": 1050133
+      },
+      {
+        "file": "part-00140.parquet",
+        "sha256": "daf3de472594ad5dde5cc0c8a65a2783708ce54809b5dcdd96a619b7280f3657",
+        "rows": 50000,
+        "bytes": 1055216
+      },
+      {
+        "file": "part-00141.parquet",
+        "sha256": "96363835fdad4ea37a051efee74a71736f40480d3d4cdef05bc6a2ad6b1b64ab",
+        "rows": 50000,
+        "bytes": 1052864
+      },
+      {
+        "file": "part-00142.parquet",
+        "sha256": "1694927d005d0dae0d3895a1f9e03d537d8ccbb93d82eb9b0b1fb7e6ee9abfaa",
+        "rows": 50000,
+        "bytes": 1053897
+      },
+      {
+        "file": "part-00143.parquet",
+        "sha256": "21a3ab4dab065ba7bcacd693c35f846e824dad2fc86688581dc35af0075f0b2c",
+        "rows": 50000,
+        "bytes": 1055389
+      },
+      {
+        "file": "part-00144.parquet",
+        "sha256": "68a801b0a9e740a57a8eae3af934d8bb480864725c124ce10de30e4bd2eee301",
+        "rows": 50000,
+        "bytes": 1057006
+      },
+      {
+        "file": "part-00145.parquet",
+        "sha256": "20996f67664c0d182b08845e3529aeaacc6a0d2bbdc863dbc8b9f6c0c14997f0",
+        "rows": 50000,
+        "bytes": 1056612
+      },
+      {
+        "file": "part-00146.parquet",
+        "sha256": "597a5190ac7f4fcb6884cf09a45ec88600377a60c5b6629b72506a06f23258a7",
+        "rows": 50000,
+        "bytes": 1053730
+      },
+      {
+        "file": "part-00147.parquet",
+        "sha256": "12859484830323cb667bbee2fd7122d448e3b9a60dcd42673c58285f58614060",
+        "rows": 50000,
+        "bytes": 1054325
+      },
+      {
+        "file": "part-00148.parquet",
+        "sha256": "749aebf973e0cb39b0adfab568eb17ff8cea33161c9a12f207103329b3d57a5b",
+        "rows": 50000,
+        "bytes": 1051943
+      },
+      {
+        "file": "part-00149.parquet",
+        "sha256": "77283776f040b03d226cf087031568aa8ae81e2499b55263d69593d365faec42",
+        "rows": 50000,
+        "bytes": 1053076
+      },
+      {
+        "file": "part-00150.parquet",
+        "sha256": "8c45dc7a43c9f772672e7a43441fdadfa236f5ea12d1894efbdbfa8eddddb7be",
+        "rows": 50000,
+        "bytes": 1053572
+      },
+      {
+        "file": "part-00151.parquet",
+        "sha256": "85dc54b211a90ec7701f1c5e91b70c7b7fc16faf3f6f7e8aa858da44d41c84b1",
+        "rows": 50000,
+        "bytes": 1059087
+      },
+      {
+        "file": "part-00152.parquet",
+        "sha256": "502a286331b8bb203ef38d31729eef75e2f7dbe8e9190e1e147b5bf8ba428356",
+        "rows": 50000,
+        "bytes": 1057597
+      },
+      {
+        "file": "part-00153.parquet",
+        "sha256": "2411ddf60dd274d7dd6fc5ac17d9e51c8b21d4a12127a5d7bdcb096f3e6b9bab",
+        "rows": 50000,
+        "bytes": 1058024
+      },
+      {
+        "file": "part-00154.parquet",
+        "sha256": "5fbe51cc3c6a11263c1e6ff55c06351f028269cc955411b4a472675405beec54",
+        "rows": 50000,
+        "bytes": 1056480
+      },
+      {
+        "file": "part-00155.parquet",
+        "sha256": "83b011e43324282f5c7830473bc54e7b8c28950138a48208ac19da767aca3210",
+        "rows": 50000,
+        "bytes": 1054670
+      },
+      {
+        "file": "part-00156.parquet",
+        "sha256": "52b149189c24ddd88e57c38daa0d917c1190c4e506c7b798eeca49c2fc25a7a1",
+        "rows": 50000,
+        "bytes": 1050622
+      },
+      {
+        "file": "part-00157.parquet",
+        "sha256": "c420d321dad879aafba3bbd892eff5625a4be00ea43115d5ca0ab75fefc35f58",
+        "rows": 50000,
+        "bytes": 1055655
+      },
+      {
+        "file": "part-00158.parquet",
+        "sha256": "72b3e09b62949200e1b131b00db16b4c933e9f05e29628e944cc8d3c6b73c0e8",
+        "rows": 50000,
+        "bytes": 1055368
+      },
+      {
+        "file": "part-00159.parquet",
+        "sha256": "58655b339fa80c64df6eee62aba481ce4b0da0eb493e9696faaca36dc63d90f4",
+        "rows": 50000,
+        "bytes": 1057506
+      },
+      {
+        "file": "part-00160.parquet",
+        "sha256": "74f7ff0f23194ee28c72021d1e04f161ab6787fafb6f87a52855c4ae90064630",
+        "rows": 50000,
+        "bytes": 1056159
+      },
+      {
+        "file": "part-00161.parquet",
+        "sha256": "13ab4d956fcff79f3647eeb7dbda61a5c735ad531cbbecdefc0d8722665a7ef6",
+        "rows": 50000,
+        "bytes": 1055278
+      },
+      {
+        "file": "part-00162.parquet",
+        "sha256": "66f60aa7625fd8fd47b58c680e40869e558840e3bb208415a5fc2aafa9bf080e",
+        "rows": 50000,
+        "bytes": 1057693
+      },
+      {
+        "file": "part-00163.parquet",
+        "sha256": "1d7dec1d2b8c4b4ddfac6ec5d02ff0040f59e681fc5d6d13fda94349f5ad6865",
+        "rows": 50000,
+        "bytes": 1054280
+      },
+      {
+        "file": "part-00164.parquet",
+        "sha256": "088a13cd7948c4de24385e61aa391bcb9a77e3ebc4177b2e35b06c31cccf609a",
+        "rows": 50000,
+        "bytes": 1056781
+      },
+      {
+        "file": "part-00165.parquet",
+        "sha256": "bc0186dd211284e4ef05685eedb6fd7e5c345803417cc8781e5ad1a59847043f",
+        "rows": 50000,
+        "bytes": 1053960
+      },
+      {
+        "file": "part-00166.parquet",
+        "sha256": "2fce5b2cc2dfda7ca654f9e2adec34c4c20ae6367b2d460d617dc355c48f3894",
+        "rows": 50000,
+        "bytes": 1056664
+      },
+      {
+        "file": "part-00167.parquet",
+        "sha256": "62c2fe073e0d837ea38a489ce937131a50b338bc34b0b8db5cd1fa129eaac838",
+        "rows": 50000,
+        "bytes": 1054748
+      },
+      {
+        "file": "part-00168.parquet",
+        "sha256": "cf9ca30681ab63941d1b6996554217f0131e0f7ab31c31f2673ab67ba4c78688",
+        "rows": 50000,
+        "bytes": 1053501
+      },
+      {
+        "file": "part-00169.parquet",
+        "sha256": "0ba42c073be389d7c0f294ea915db79cacccaa59ef5097250f14a89bf4bed464",
+        "rows": 50000,
+        "bytes": 1053289
+      },
+      {
+        "file": "part-00170.parquet",
+        "sha256": "a4e541bb20c14c74331e0e52e746becdd02c69e3bd239a79d7484a33358e99dc",
+        "rows": 50000,
+        "bytes": 1055626
+      },
+      {
+        "file": "part-00171.parquet",
+        "sha256": "3e57ed2b9f55e75aec29e5dc95d142218b8b0b403465f11d1a1782b35f39bef1",
+        "rows": 50000,
+        "bytes": 1059698
+      },
+      {
+        "file": "part-00172.parquet",
+        "sha256": "dfea5123570dc52c8227bf9374f37e565e9a14cd37d3b749bd83ccbe307cf58f",
+        "rows": 50000,
+        "bytes": 1056579
+      },
+      {
+        "file": "part-00173.parquet",
+        "sha256": "de2554c76431d1a7ca37f9258108c4a31f4689e5e6e2f7f32991db49f8cc1555",
+        "rows": 50000,
+        "bytes": 1054089
+      },
+      {
+        "file": "part-00174.parquet",
+        "sha256": "0ae719763db1caafdc8fb2d9ffca3936161a2b6876c8286a7ddbbb6c1419329e",
+        "rows": 50000,
+        "bytes": 1055697
+      },
+      {
+        "file": "part-00175.parquet",
+        "sha256": "f89a8e0e319b7387b27cea2be22a521c03f9a86159b7bb7619d5b42cab3accd5",
+        "rows": 50000,
+        "bytes": 1055434
+      },
+      {
+        "file": "part-00176.parquet",
+        "sha256": "7d4f1fc9d1a4b45faf4ec23517bec87a02b6e07842251a37126b67cf6bac0614",
+        "rows": 50000,
+        "bytes": 1055018
+      },
+      {
+        "file": "part-00177.parquet",
+        "sha256": "d6facaaf0267c88dfa6f4f2f78387f999738cde326380de3c298f4cd74816e2e",
+        "rows": 50000,
+        "bytes": 1052674
+      },
+      {
+        "file": "part-00178.parquet",
+        "sha256": "1ffbd874c732c764329f9786423ff91cbe278ee3704c3bfbd44a399fd132af71",
+        "rows": 50000,
+        "bytes": 1052451
+      },
+      {
+        "file": "part-00179.parquet",
+        "sha256": "5f1b5bdf01b65700679c145e687f9b6f645052d11eb6488ff2c0c6988ec8160c",
+        "rows": 50000,
+        "bytes": 1057680
+      },
+      {
+        "file": "part-00180.parquet",
+        "sha256": "3290581c0a1322641be78037a2e0fdd97437de055bd0bfc36f5f16f233c1778f",
+        "rows": 50000,
+        "bytes": 1056730
+      },
+      {
+        "file": "part-00181.parquet",
+        "sha256": "02683ab61ba49558ade0e56fb25010a835b2f98e67940f219e68c6e6281c63e1",
+        "rows": 50000,
+        "bytes": 1053202
+      },
+      {
+        "file": "part-00182.parquet",
+        "sha256": "4e7fd2020a65723f378380ed18eeaf4177b4a2762255ac87e994f877b0df3652",
+        "rows": 50000,
+        "bytes": 1056552
+      },
+      {
+        "file": "part-00183.parquet",
+        "sha256": "fc80dde69b63456710505806386bdec15acfecea0f8ffa95502e8702c7c27ddb",
+        "rows": 50000,
+        "bytes": 1055968
+      },
+      {
+        "file": "part-00184.parquet",
+        "sha256": "8ef2583486a88b3f532b00e5e7f0519bdbff07552d58beb43c47f9cb0f1fac4e",
+        "rows": 50000,
+        "bytes": 1053958
+      },
+      {
+        "file": "part-00185.parquet",
+        "sha256": "d52970219568ea954382e353b82936ca0bb52735acfc8a822e966f0b554e93ea",
+        "rows": 50000,
+        "bytes": 1057775
+      },
+      {
+        "file": "part-00186.parquet",
+        "sha256": "0f0305a73152fdb1f40f4bba582b88aad16cae3c8bb4ae81e22194ee6f6b3e56",
+        "rows": 50000,
+        "bytes": 1052523
+      },
+      {
+        "file": "part-00187.parquet",
+        "sha256": "f5159b891172b9496623d3f3dd43439f2da6f05c5887418707a6bf01b71c0a9c",
+        "rows": 50000,
+        "bytes": 1054975
+      },
+      {
+        "file": "part-00188.parquet",
+        "sha256": "8d410ac0a534836699264a69d60b35d1cd42a490038f7fe19ed06bf71cae4716",
+        "rows": 50000,
+        "bytes": 1054525
+      },
+      {
+        "file": "part-00189.parquet",
+        "sha256": "d1138ac8decef809effda06d9482e5a28b7254f5ddac60ac244b44d87e85d9a4",
+        "rows": 50000,
+        "bytes": 1055821
+      },
+      {
+        "file": "part-00190.parquet",
+        "sha256": "909f8389b03d529a036e1202917e3a097e7480519445f90f3f73ded843060bb3",
+        "rows": 50000,
+        "bytes": 1057330
+      },
+      {
+        "file": "part-00191.parquet",
+        "sha256": "bc6cf8a4c5a52452cb4a17bdd64554736667b73efa7e2b7b11cd4e7b0f7711b9",
+        "rows": 50000,
+        "bytes": 1055698
+      },
+      {
+        "file": "part-00192.parquet",
+        "sha256": "d8ec8ea9ad23e4378241169c21cc64f247999e2f68fc4b5be8afb7a2f0dbe0a1",
+        "rows": 50000,
+        "bytes": 1055225
+      },
+      {
+        "file": "part-00193.parquet",
+        "sha256": "1124ebfba849c4ad7e45d69b842470c766d80ee2e9786acb028802edc8c6004e",
+        "rows": 50000,
+        "bytes": 1055187
+      },
+      {
+        "file": "part-00194.parquet",
+        "sha256": "7794cc09cd2eb06efcc0fd7c9ea01688cf930b83d7ac633cfdc55a79c4c55636",
+        "rows": 50000,
+        "bytes": 1053975
+      },
+      {
+        "file": "part-00195.parquet",
+        "sha256": "fcc3509b404a4f993e0ef2ce62e128e0094a4e3dc920b518785207df279c4dd4",
+        "rows": 50000,
+        "bytes": 1052574
+      },
+      {
+        "file": "part-00196.parquet",
+        "sha256": "b6c9955228ed62bb6dfc3f19fa2e7d5c05b650c599d3a059adb5750a62a7b2d0",
+        "rows": 50000,
+        "bytes": 1051224
+      },
+      {
+        "file": "part-00197.parquet",
+        "sha256": "1bb2e2ca109b4277f530f27c99d9d17025ed82a3bc015b0b7269a832432e323d",
+        "rows": 50000,
+        "bytes": 1054556
+      },
+      {
+        "file": "part-00198.parquet",
+        "sha256": "b451a2add26d281dc9537cd77850cf3c9e690e4e731acf1f7385defd6a711590",
+        "rows": 50000,
+        "bytes": 1052739
+      },
+      {
+        "file": "part-00199.parquet",
+        "sha256": "df46325b0402e4ea48a1b76a02fb00a4a3e19e230e04b8fccc4c9ec6d554875e",
+        "rows": 50000,
+        "bytes": 1056797
+      }
+    ],
+    "reference_units": {
+      "Facebook": {
+        "rows": 2388460,
+        "impressions": 17397262681,
+        "clicks": 281866916,
+        "spend": 410868484939,
+        "conversions": 10897233000000,
+        "revenue": 2615063127202,
+        "known_impressions": 2388460,
+        "known_clicks": 2388460,
+        "known_spend": 2388460,
+        "known_conversions": 2388460,
+        "known_revenue": 2388460
+      },
+      "Google": {
+        "rows": 1995225,
+        "impressions": 12440636870,
+        "clicks": 197686264,
+        "spend": 398525319903,
+        "conversions": 9454565000000,
+        "revenue": 2685647518880,
+        "known_impressions": 1995225,
+        "known_clicks": 1995225,
+        "known_spend": 1995225,
+        "known_conversions": 1995225,
+        "known_revenue": 1995225
+      },
+      "Instagram": {
+        "rows": 2203913,
+        "impressions": 14754169980,
+        "clicks": 236761799,
+        "spend": 410087043499,
+        "conversions": 10238563000000,
+        "revenue": 2681785232856,
+        "known_impressions": 2203913,
+        "known_clicks": 2203913,
+        "known_spend": 2203913,
+        "known_conversions": 2203913,
+        "known_revenue": 2203913
+      },
+      "TikTok": {
+        "rows": 1806013,
+        "impressions": 10607980004,
+        "clicks": 166270878,
+        "spend": 385439919014,
+        "conversions": 8675634000000,
+        "revenue": 2654948288994,
+        "known_impressions": 1806013,
+        "known_clicks": 1806013,
+        "known_spend": 1806013,
+        "known_conversions": 1806013,
+        "known_revenue": 1806013
+      },
+      "YouTube": {
+        "rows": 1606389,
+        "impressions": 8964758033,
+        "clicks": 138970498,
+        "spend": 364927527341,
+        "conversions": 7864685000000,
+        "revenue": 2579143463707,
+        "known_impressions": 1606389,
+        "known_clicks": 1606389,
+        "known_spend": 1606389,
+        "known_conversions": 1606389,
+        "known_revenue": 1606389
+      }
+    },
+    "reference": [
+      {
+        "name": "Facebook",
+        "rows": 2388460,
+        "impressions": 17397262681.0,
+        "clicks": 281866916.0,
+        "spend": 4108684849.39,
+        "conversions": 10897233.0,
+        "revenue": 26150631272.02,
+        "ctr": 1.6201796867034384,
+        "cpc": 14.576683591308743,
+        "cpa": 377.03927679531125,
+        "cvr": 3.866091542293669,
+        "roas": 6.364720641911117,
+        "coverage": {
+          "impressions": 1.0,
+          "clicks": 1.0,
+          "spend": 1.0,
+          "conversions": 1.0,
+          "revenue": 1.0
+        }
+      },
+      {
+        "name": "Google",
+        "rows": 1995225,
+        "impressions": 12440636870.0,
+        "clicks": 197686264.0,
+        "spend": 3985253199.03,
+        "conversions": 9454565.0,
+        "revenue": 26856475188.8,
+        "ctr": 1.5890365265520365,
+        "cpc": 20.15948462170341,
+        "cpa": 421.5162938781425,
+        "cvr": 4.782610996179279,
+        "roas": 6.738963334961199,
+        "coverage": {
+          "impressions": 1.0,
+          "clicks": 1.0,
+          "spend": 1.0,
+          "conversions": 1.0,
+          "revenue": 1.0
+        }
+      },
+      {
+        "name": "Instagram",
+        "rows": 2203913,
+        "impressions": 14754169980.0,
+        "clicks": 236761799.0,
+        "spend": 4100870434.99,
+        "conversions": 10238563.0,
+        "revenue": 26817852328.56,
+        "ctr": 1.6047110703004113,
+        "cpc": 17.32065921238417,
+        "cpa": 400.5318358630991,
+        "cvr": 4.324415105495967,
+        "roas": 6.539551237644844,
+        "coverage": {
+          "impressions": 1.0,
+          "clicks": 1.0,
+          "spend": 1.0,
+          "conversions": 1.0,
+          "revenue": 1.0
+        }
+      },
+      {
+        "name": "TikTok",
+        "rows": 1806013,
+        "impressions": 10607980004.0,
+        "clicks": 166270878.0,
+        "spend": 3854399190.14,
+        "conversions": 8675634.0,
+        "revenue": 26549482889.94,
+        "ctr": 1.5674131921186076,
+        "cpc": 23.181444859754695,
+        "cpa": 444.2786763641712,
+        "cvr": 5.217771208256926,
+        "roas": 6.888098917687783,
+        "coverage": {
+          "impressions": 1.0,
+          "clicks": 1.0,
+          "spend": 1.0,
+          "conversions": 1.0,
+          "revenue": 1.0
+        }
+      },
+      {
+        "name": "YouTube",
+        "rows": 1606389,
+        "impressions": 8964758033.0,
+        "clicks": 138970498.0,
+        "spend": 3649275273.41,
+        "conversions": 7864685.0,
+        "revenue": 25791434637.07,
+        "ctr": 1.550186825884629,
+        "cpc": 26.25935235124508,
+        "cpa": 464.00781129949894,
+        "cvr": 5.659247907422768,
+        "roas": 7.067549774881646,
+        "coverage": {
+          "impressions": 1.0,
+          "clicks": 1.0,
+          "spend": 1.0,
+          "conversions": 1.0,
+          "revenue": 1.0
+        }
+      }
+    ]
+  },
+  "environment": {
+    "os": "Windows-11-10.0.26300-SP0",
+    "architecture": "AMD64",
+    "cpu": "Intel64 Family 6 Model 154 Stepping 4, GenuineIntel",
+    "logical_cpus": 12,
+    "physical_cpus": 10,
+    "ram_total_bytes": 25459482624,
+    "ram_available_bytes": 4208795648,
+    "disk_free_bytes": 86610739200,
+    "python": "3.12.15",
+    "packages": {
+      "pandas": "2.3.3",
+      "numpy": "2.5.4",
+      "pyarrow": "26.0.0",
+      "pyspark": "4.2.1",
+      "psutil": "7.2.2"
+    },
+    "java": {
+      "major": 17,
+      "description": "openjdk version \"17.0.20.1\" 2026-08-18"
+    },
+    "input_format": "partitioned Parquet / Snappy",
+    "engines": [
+      {
+        "id": "pandas",
+        "label": "Pandas",
+        "available": true,
+        "reason": "In-memory groupby when safe; explicitly chunked for larger inputs."
+      },
+      {
+        "id": "mapreduce",
+        "label": "Local MapReduce",
+        "available": true,
+        "reason": "Python process mappers, local shuffle/group, and a sum/count reducer."
+      },
+      {
+        "id": "spark",
+        "label": "Apache Spark \u00b7 local",
+        "available": true,
+        "reason": "Local PySpark DataFrame aggregation; no distributed cluster."
+      }
+    ],
+    "limits": {
+      "max_rows": 10000000,
+      "max_workers": 4,
+      "max_memory_mib": 4096,
+      "engine_timeout_seconds": 600,
+      "job_timeout_seconds": 1800,
+      "concurrent_jobs": 1,
+      "disk_reserve_bytes": 1073741824
+    }
+  },
+  "results": [
+    {
+      "engine": "pandas",
+      "status": "completed",
+      "runs": [
+        {
+          "repeat": 1,
+          "elapsed_seconds": 7.773305700015044,
+          "rows_per_second": 1286453.9728549009,
+          "correct": true
+        },
+        {
+          "repeat": 2,
+          "elapsed_seconds": 7.4709359999978915,
+          "rows_per_second": 1338520.3674616972,
+          "correct": true
+        },
+        {
+          "repeat": 3,
+          "elapsed_seconds": 4.90081370002008,
+          "rows_per_second": 2040477.4823329903,
+          "correct": true
+        }
+      ],
+      "peak_tree_rss_bytes": 127545344,
+      "setup_seconds": 1.3941102999961004,
+      "median_seconds": 7.4709359999978915,
+      "median_rows_per_second": 1338520.3674616972,
+      "message": "All repeated results match the reference.",
+      "mode": "Pandas \u00b7 chunked",
+      "aggregate": [
+        {
+          "name": "Facebook",
+          "rows": 2388460,
+          "impressions": 17397262681.0,
+          "clicks": 281866916.0,
+          "spend": 4108684849.39,
+          "conversions": 10897233.0,
+          "revenue": 26150631272.02,
+          "ctr": 1.6201796867034384,
+          "cpc": 14.576683591308743,
+          "cpa": 377.03927679531125,
+          "cvr": 3.866091542293669,
+          "roas": 6.364720641911117,
+          "coverage": {
+            "impressions": 1.0,
+            "clicks": 1.0,
+            "spend": 1.0,
+            "conversions": 1.0,
+            "revenue": 1.0
+          }
+        },
+        {
+          "name": "Google",
+          "rows": 1995225,
+          "impressions": 12440636870.0,
+          "clicks": 197686264.0,
+          "spend": 3985253199.03,
+          "conversions": 9454565.0,
+          "revenue": 26856475188.8,
+          "ctr": 1.5890365265520365,
+          "cpc": 20.15948462170341,
+          "cpa": 421.5162938781425,
+          "cvr": 4.782610996179279,
+          "roas": 6.738963334961199,
+          "coverage": {
+            "impressions": 1.0,
+            "clicks": 1.0,
+            "spend": 1.0,
+            "conversions": 1.0,
+            "revenue": 1.0
+          }
+        },
+        {
+          "name": "Instagram",
+          "rows": 2203913,
+          "impressions": 14754169980.0,
+          "clicks": 236761799.0,
+          "spend": 4100870434.99,
+          "conversions": 10238563.0,
+          "revenue": 26817852328.56,
+          "ctr": 1.6047110703004113,
+          "cpc": 17.32065921238417,
+          "cpa": 400.5318358630991,
+          "cvr": 4.324415105495967,
+          "roas": 6.539551237644844,
+          "coverage": {
+            "impressions": 1.0,
+            "clicks": 1.0,
+            "spend": 1.0,
+            "conversions": 1.0,
+            "revenue": 1.0
+          }
+        },
+        {
+          "name": "TikTok",
+          "rows": 1806013,
+          "impressions": 10607980004.0,
+          "clicks": 166270878.0,
+          "spend": 3854399190.14,
+          "conversions": 8675634.0,
+          "revenue": 26549482889.94,
+          "ctr": 1.5674131921186076,
+          "cpc": 23.181444859754695,
+          "cpa": 444.2786763641712,
+          "cvr": 5.217771208256926,
+          "roas": 6.888098917687783,
+          "coverage": {
+            "impressions": 1.0,
+            "clicks": 1.0,
+            "spend": 1.0,
+            "conversions": 1.0,
+            "revenue": 1.0
+          }
+        },
+        {
+          "name": "YouTube",
+          "rows": 1606389,
+          "impressions": 8964758033.0,
+          "clicks": 138970498.0,
+          "spend": 3649275273.41,
+          "conversions": 7864685.0,
+          "revenue": 25791434637.07,
+          "ctr": 1.550186825884629,
+          "cpc": 26.25935235124508,
+          "cpa": 464.00781129949894,
+          "cvr": 5.659247907422768,
+          "roas": 7.067549774881646,
+          "coverage": {
+            "impressions": 1.0,
+            "clicks": 1.0,
+            "spend": 1.0,
+            "conversions": 1.0,
+            "revenue": 1.0
+          }
+        }
+      ]
+    },
+    {
+      "engine": "mapreduce",
+      "status": "completed",
+      "runs": [
+        {
+          "repeat": 1,
+          "elapsed_seconds": 22.00084490000154,
+          "rows_per_second": 454527.99860424,
+          "correct": true
+        },
+        {
+          "repeat": 2,
+          "elapsed_seconds": 21.589530600002035,
+          "rows_per_second": 463187.4673550826,
+          "correct": true
+        },
+        {
+          "repeat": 3,
+          "elapsed_seconds": 21.445261899993056,
+          "rows_per_second": 466303.4681802248,
+          "correct": true
+        }
+      ],
+      "peak_tree_rss_bytes": 320921600,
+      "setup_seconds": 2.6222871000063606,
+      "median_seconds": 21.589530600002035,
+      "median_rows_per_second": 463187.4673550826,
+      "message": "All repeated results match the reference.",
+      "mode": "Local MapReduce \u00b7 2 mapper processes",
+      "aggregate": [
+        {
+          "name": "Facebook",
+          "rows": 2388460,
+          "impressions": 17397262681.0,
+          "clicks": 281866916.0,
+          "spend": 4108684849.39,
+          "conversions": 10897233.0,
+          "revenue": 26150631272.02,
+          "ctr": 1.6201796867034384,
+          "cpc": 14.576683591308743,
+          "cpa": 377.03927679531125,
+          "cvr": 3.866091542293669,
+          "roas": 6.364720641911117,
+          "coverage": {
+            "impressions": 1.0,
+            "clicks": 1.0,
+            "spend": 1.0,
+            "conversions": 1.0,
+            "revenue": 1.0
+          }
+        },
+        {
+          "name": "Google",
+          "rows": 1995225,
+          "impressions": 12440636870.0,
+          "clicks": 197686264.0,
+          "spend": 3985253199.03,
+          "conversions": 9454565.0,
+          "revenue": 26856475188.8,
+          "ctr": 1.5890365265520365,
+          "cpc": 20.15948462170341,
+          "cpa": 421.5162938781425,
+          "cvr": 4.782610996179279,
+          "roas": 6.738963334961199,
+          "coverage": {
+            "impressions": 1.0,
+            "clicks": 1.0,
+            "spend": 1.0,
+            "conversions": 1.0,
+            "revenue": 1.0
+          }
+        },
+        {
+          "name": "Instagram",
+          "rows": 2203913,
+          "impressions": 14754169980.0,
+          "clicks": 236761799.0,
+          "spend": 4100870434.99,
+          "conversions": 10238563.0,
+          "revenue": 26817852328.56,
+          "ctr": 1.6047110703004113,
+          "cpc": 17.32065921238417,
+          "cpa": 400.5318358630991,
+          "cvr": 4.324415105495967,
+          "roas": 6.539551237644844,
+          "coverage": {
+            "impressions": 1.0,
+            "clicks": 1.0,
+            "spend": 1.0,
+            "conversions": 1.0,
+            "revenue": 1.0
+          }
+        },
+        {
+          "name": "TikTok",
+          "rows": 1806013,
+          "impressions": 10607980004.0,
+          "clicks": 166270878.0,
+          "spend": 3854399190.14,
+          "conversions": 8675634.0,
+          "revenue": 26549482889.94,
+          "ctr": 1.5674131921186076,
+          "cpc": 23.181444859754695,
+          "cpa": 444.2786763641712,
+          "cvr": 5.217771208256926,
+          "roas": 6.888098917687783,
+          "coverage": {
+            "impressions": 1.0,
+            "clicks": 1.0,
+            "spend": 1.0,
+            "conversions": 1.0,
+            "revenue": 1.0
+          }
+        },
+        {
+          "name": "YouTube",
+          "rows": 1606389,
+          "impressions": 8964758033.0,
+          "clicks": 138970498.0,
+          "spend": 3649275273.41,
+          "conversions": 7864685.0,
+          "revenue": 25791434637.07,
+          "ctr": 1.550186825884629,
+          "cpc": 26.25935235124508,
+          "cpa": 464.00781129949894,
+          "cvr": 5.659247907422768,
+          "roas": 7.067549774881646,
+          "coverage": {
+            "impressions": 1.0,
+            "clicks": 1.0,
+            "spend": 1.0,
+            "conversions": 1.0,
+            "revenue": 1.0
+          }
+        }
+      ]
+    },
+    {
+      "engine": "spark",
+      "status": "completed",
+      "runs": [
+        {
+          "repeat": 1,
+          "elapsed_seconds": 16.957610599987675,
+          "rows_per_second": 589705.7218666921,
+          "correct": true
+        },
+        {
+          "repeat": 2,
+          "elapsed_seconds": 9.739891099976376,
+          "rows_per_second": 1026705.5244615882,
+          "correct": true
+        },
+        {
+          "repeat": 3,
+          "elapsed_seconds": 7.063413399999263,
+          "rows_per_second": 1415746.103718217,
+          "correct": true
+        }
+      ],
+      "peak_tree_rss_bytes": 790827008,
+      "setup_seconds": 10.099974599987036,
+      "median_seconds": 9.739891099976376,
+      "median_rows_per_second": 1026705.5244615882,
+      "message": "All repeated results match the reference.",
+      "mode": "PySpark \u00b7 local[2]",
+      "aggregate": [
+        {
+          "name": "Facebook",
+          "rows": 2388460,
+          "impressions": 17397262681.0,
+          "clicks": 281866916.0,
+          "spend": 4108684849.39,
+          "conversions": 10897233.0,
+          "revenue": 26150631272.02,
+          "ctr": 1.6201796867034384,
+          "cpc": 14.576683591308743,
+          "cpa": 377.03927679531125,
+          "cvr": 3.866091542293669,
+          "roas": 6.364720641911117,
+          "coverage": {
+            "impressions": 1.0,
+            "clicks": 1.0,
+            "spend": 1.0,
+            "conversions": 1.0,
+            "revenue": 1.0
+          }
+        },
+        {
+          "name": "Google",
+          "rows": 1995225,
+          "impressions": 12440636870.0,
+          "clicks": 197686264.0,
+          "spend": 3985253199.03,
+          "conversions": 9454565.0,
+          "revenue": 26856475188.8,
+          "ctr": 1.5890365265520365,
+          "cpc": 20.15948462170341,
+          "cpa": 421.5162938781425,
+          "cvr": 4.782610996179279,
+          "roas": 6.738963334961199,
+          "coverage": {
+            "impressions": 1.0,
+            "clicks": 1.0,
+            "spend": 1.0,
+            "conversions": 1.0,
+            "revenue": 1.0
+          }
+        },
+        {
+          "name": "Instagram",
+          "rows": 2203913,
+          "impressions": 14754169980.0,
+          "clicks": 236761799.0,
+          "spend": 4100870434.99,
+          "conversions": 10238563.0,
+          "revenue": 26817852328.56,
+          "ctr": 1.6047110703004113,
+          "cpc": 17.32065921238417,
+          "cpa": 400.5318358630991,
+          "cvr": 4.324415105495967,
+          "roas": 6.539551237644844,
+          "coverage": {
+            "impressions": 1.0,
+            "clicks": 1.0,
+            "spend": 1.0,
+            "conversions": 1.0,
+            "revenue": 1.0
+          }
+        },
+        {
+          "name": "TikTok",
+          "rows": 1806013,
+          "impressions": 10607980004.0,
+          "clicks": 166270878.0,
+          "spend": 3854399190.14,
+          "conversions": 8675634.0,
+          "revenue": 26549482889.94,
+          "ctr": 1.5674131921186076,
+          "cpc": 23.181444859754695,
+          "cpa": 444.2786763641712,
+          "cvr": 5.217771208256926,
+          "roas": 6.888098917687783,
+          "coverage": {
+            "impressions": 1.0,
+            "clicks": 1.0,
+            "spend": 1.0,
+            "conversions": 1.0,
+            "revenue": 1.0
+          }
+        },
+        {
+          "name": "YouTube",
+          "rows": 1606389,
+          "impressions": 8964758033.0,
+          "clicks": 138970498.0,
+          "spend": 3649275273.41,
+          "conversions": 7864685.0,
+          "revenue": 25791434637.07,
+          "ctr": 1.550186825884629,
+          "cpc": 26.25935235124508,
+          "cpa": 464.00781129949894,
+          "cvr": 5.659247907422768,
+          "roas": 7.067549774881646,
+          "coverage": {
+            "impressions": 1.0,
+            "clicks": 1.0,
+            "spend": 1.0,
+            "conversions": 1.0,
+            "revenue": 1.0
+          }
+        }
+      ]
+    }
+  ],
+  "completed_at": "2026-11-02T15:10:36.923085+00:00",
+  "benchmark_version": "2.0",
+  "generation_seconds": null,
+  "engine_pid": null
+}

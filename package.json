@@ -6,6 +6,7 @@
     "check": "npm --prefix frontend run check",
     "build": "npm --prefix frontend run build",
     "test:ui": "node scripts/qa-screens.mjs",
-    "test:e2e": "node scripts/e2e-flows.mjs"
+    "test:e2e": "node scripts/e2e-flows.mjs",
+    "test:e2e:commerce": "node scripts/e2e-commerce.mjs"
   }
 }
