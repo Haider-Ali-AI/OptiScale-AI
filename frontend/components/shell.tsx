@@ -75,7 +75,7 @@ function ThemeToggle() {
       onClick={() => {
         document.documentElement.dataset.theme = next;
         try {
-          localStorage.setItem("signalspend.theme", next);
+          localStorage.setItem("optiscale.theme", next);
         } catch {
           /* preference not persisted */
         }
@@ -162,11 +162,11 @@ function Frame({ children }: { children: ReactNode }) {
         <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
           <Link href="/" className="brand">
             <span className="brand-mark" aria-hidden="true">
-              S
+              O
             </span>
             <span className="brand-name">
-              SignalSpend AI
-              <small>Budget intelligence</small>
+              OptiScale AI
+              <small>Scalable Optimization Engine</small>
             </span>
           </Link>
           <button className="btn ghost sm menu-toggle" type="button" aria-label="Close navigation" onClick={() => setOpen(false)} style={{ color: "#fff" }}>
@@ -198,7 +198,7 @@ function Frame({ children }: { children: ReactNode }) {
             <Menu size={18} />
           </button>
           <div className="crumbs" aria-label="Breadcrumb">
-            <span>SignalSpend</span>
+            <span>OptiScale</span>
             <span aria-hidden="true">/</span>
             <strong aria-current="page">{current?.label || "Page"}</strong>
           </div>

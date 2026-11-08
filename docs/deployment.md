@@ -4,11 +4,11 @@
 
 | Item | Value |
 |---|---|
-| Production URL | https://signalspend-ai.vercel.app (**public demo, no login**: `ADS_PUBLIC_DEMO=1`; deletes and API-key changes refused) |
-| Vercel project | `signalspend-ai` in team "Obaiz's projects" (`prj_cVY4EZgHtNtMXCf2tCE2208BTSI2`) |
+| Production URL | https://optiscale-ai.vercel.app (**public demo, no login**: `ADS_PUBLIC_DEMO=1`; deletes and API-key changes refused) |
+| Vercel project | `optiscale-ai` (`prj_cVY4EZgHtNtMXCf2tCE2208BTSI2`) |
 | Settings | Root directory `frontend`, framework Next.js, Node 24.x, include files outside root directory = on |
-| Database | Neon Postgres, **Free plan** (`free_v3`), resource `signalspend-db`, connected to **Production only** (previews never see production data) |
-| Production env (names only) | `ADS_PUBLIC_DEMO=1`, `NVIDIA_API_KEY` (sensitive), `ADS_ACCESS_PASSWORD` (sensitive, used only if public demo is turned off), `ADS_ALLOWED_ORIGINS=https://signalspend-ai.vercel.app`, `VERCEL_SUPPORT_LARGE_FUNCTIONS=1`, Neon-injected `DATABASE_URL`/`POSTGRES_URL`/… |
+| Database | Neon Postgres, **Free plan** (`free_v3`), resource `optiscale-db`, connected to **Production only** (previews never see production data) |
+| Production env (names only) | `ADS_PUBLIC_DEMO=1`, `NVIDIA_API_KEY` (sensitive), `ADS_ACCESS_PASSWORD` (sensitive, used only if public demo is turned off), `ADS_ALLOWED_ORIGINS=https://optiscale-ai.vercel.app`, `VERCEL_SUPPORT_LARGE_FUNCTIONS=1`, Neon-injected `DATABASE_URL`/`POSTGRES_URL`/… |
 | Owner password | Generated locally; stored only in Vercel and in `../SIGNALSPEND-OWNER-LOGIN.txt` (outside the Git repo). Never committed |
 | Deployed from | Vercel CLI (local upload), commit of this repo at deploy time; no GitHub remote is connected |
 | Permission | Owner permission reported by the user on 2026-11-02 (see ATTRIBUTION.md) |
@@ -36,7 +36,7 @@ Live re-test without login: browser QA 33/33 clean, core journeys 10/10, commerc
 
 Re-run against production:
 ```sh
-APP_URL=https://signalspend-ai.vercel.app HTTP_USER=owner HTTP_PASS=<from the login file> QA_TAG=cloud node scripts/qa-screens.mjs
+APP_URL=https://optiscale-ai.vercel.app HTTP_USER=owner HTTP_PASS=<from the login file> QA_TAG=cloud node scripts/qa-screens.mjs
 APP_URL=… HTTP_USER=owner HTTP_PASS=… QA_TAG=cloud node scripts/e2e-flows.mjs
 ```
 (Git Bash on Windows: prefix with `MSYS_NO_PATHCONV=1`.)

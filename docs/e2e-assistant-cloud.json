@@ -1,6 +1,6 @@
 {
   "checked_at": "2026-11-02T16:13:26.906Z",
-  "base": "https://signalspend-ai.vercel.app",
+  "base": "https://optiscale-ai.vercel.app",
   "checks": [
     {
       "name": "NVIDIA key configured on the server",

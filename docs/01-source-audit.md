@@ -40,7 +40,7 @@ The public snapshot is what was audited; no other working tree was available.
 
 ## Existing UI inventory (reference, replaced)
 
-Routes: `/` (overview), `/data-studio`, `/campaigns`, `/ml-studio`, `/budget-optimizer`, `/big-data-lab`, `/ai-assistant`, `/commerce`, `/help`. All rendered by one `Workspace` client component. SignalSpend keeps every legacy path working via redirects (see 07-ui-journeys.md).
+Routes: `/` (overview), `/data-studio`, `/campaigns`, `/ml-studio`, `/budget-optimizer`, `/big-data-lab`, `/ai-assistant`, `/commerce`, `/help`. All rendered by one `Workspace` client component. OptiScale keeps every legacy path working via redirects (see 07-ui-journeys.md).
 
 ## Data contracts reused unchanged
 

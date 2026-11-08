@@ -164,7 +164,7 @@ def measure_engine(store, job_id, config, dataset, engine_id, checkpoint):
             if child.returncode != 0 and snapshot["status"] == "completed":
                 snapshot.update(status="failed", message="The engine process exited abnormally.")
             elif snapshot["status"] not in {"completed", "failed"}:
-                # SignalSpend patch F-1 (2026-11-02): never keep a non-terminal status
+                # OptiScale patch F-1 (2026-11-02): never keep a non-terminal status
                 # after the engine process has exited (see docs/08-backend-change-log.md).
                 snapshot.update(
                     status="failed",

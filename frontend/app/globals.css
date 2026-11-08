@@ -1,27 +1,27 @@
 @import "tailwindcss";
 
-/* SignalSpend AI — "Marketing Intelligence Flight Deck" design tokens.
+/* OptiScale AI — "Marketing Intelligence Flight Deck" design tokens.
    See docs/06-design-system.md. Dark is the primary theme; light is a separate palette. */
 :root,
 :root[data-theme="dark"] {
   color-scheme: dark;
-  --canvas: #0b1220;
-  --rail: #0e1728;
-  --surface: #121f33;
-  --card: #18273e;
-  --card-2: #1d2f4a;
-  --line: #2a3a52;
-  --line-strong: #3a4e6c;
-  --text: #f6f8fc;
-  --text-2: #a7b7ce;
-  --text-3: #8798b2;
-  --teal: #39d7c8;
-  --teal-ink: #062a27;
-  --peri: #8a87f6;
-  --amber: #ffb860;
-  --critical: #f37d83;
-  --ok: #5fd39a;
-  --focus: #7fe9df;
+  --canvas: #090d16;
+  --rail: #0d1322;
+  --surface: #111a2e;
+  --card: #162038;
+  --card-2: #1b2846;
+  --line: #243456;
+  --line-strong: #334873;
+  --text: #f8fafc;
+  --text-2: #94a3b8;
+  --text-3: #64748b;
+  --teal: #06b6d4;
+  --teal-ink: #082f49;
+  --peri: #6366f1;
+  --amber: #f59e0b;
+  --critical: #f43f5e;
+  --ok: #10b981;
+  --focus: #38bdf8;
   --shadow: 0 1px 0 rgba(255, 255, 255, 0.03) inset, 0 18px 40px -24px rgba(0, 0, 0, 0.7);
   /* Platform series — fixed across every screen; always paired with a text label + marker shape. */
   --p-facebook: #5b9bff;
@@ -170,7 +170,7 @@ code {
   border-radius: 8px;
   display: grid;
   place-items: center;
-  background: conic-gradient(from 200deg, #39d7c8, #8a87f6, #ffb860, #39d7c8);
+  background: linear-gradient(135deg, #06b6d4, #6366f1, #3b82f6);
   color: #0b1220;
   font-weight: 800;
   font-size: 15px;

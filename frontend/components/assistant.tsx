@@ -51,7 +51,7 @@ export function Assistant() {
     <>
       <PageHead eyebrow="AI insight assistant · optional" title="Explain results in plain language">
         Uses NVIDIA&apos;s hosted model only if you configure a key. It receives a short qualitative summary you approve. It never
-        computes metrics, predictions or allocations, and the rest of SignalSpend works without it.
+        computes metrics, predictions or allocations, and the rest of OptiScale AI works without it.
       </PageHead>
       <div className="grid cols-2">
         <Panel

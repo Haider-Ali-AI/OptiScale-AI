@@ -1,10 +1,10 @@
-# SignalSpend AI
+# OptiScale AI
 
 **Marketing Intelligence & Budget Optimization Studio.** Where should a company spend its next Rs 1,000,000 across Facebook, Instagram, Google, TikTok and YouTube?
 
-SignalSpend AI turns campaign history into weighted KPIs, measures **Pandas vs MapReduce vs Apache Spark** on 10K → 10M rows, trains and validates an **XGBoost** revenue model, and splits a user-entered PKR budget **exactly to the last paisa** within the limits you set. Every number says where it came from and what it cannot prove.
+OptiScale AI turns campaign history into weighted KPIs, measures **Pandas vs MapReduce vs Apache Spark** on 10K → 10M rows, trains and validates an **XGBoost** revenue model, and splits a user-entered PKR budget **exactly to the last paisa** within the limits you set. Every number says where it came from and what it cannot prove.
 
-**Live demo:** https://signalspend-ai.vercel.app (public demo, no login needed)
+**Live demo:** https://optiscale-ai.vercel.app (public demo, no login needed)
 
 ![Executive overview](docs/screenshots/overview-1440.png)
 
@@ -235,7 +235,7 @@ npm run test:ui                     # all routes × 7 widths
 npm run test:e2e                    # core browser journeys
 npm run test:e2e:commerce           # commerce journey
 ```
-To run the browser scripts against the live site, set `APP_URL=https://signalspend-ai.vercel.app`. Latest results are in [docs/test-report.md](docs/test-report.md).
+To run the browser scripts against the live site, set `APP_URL=https://optiscale-ai.vercel.app`. Latest results are in [docs/test-report.md](docs/test-report.md).
 
 ## Deployment (Vercel)
 Next.js app with a Python function. Vercel settings: root directory `frontend`, files outside root included, and a free Neon Postgres for workspace persistence. Hosted limits: 64 MiB workspace, 4 MiB uploads, training up to 10,000 rows, and no Big Data lab (it runs locally). Full steps and evidence: [docs/deployment.md](docs/deployment.md). Redeploy with `vercel deploy --prod`.

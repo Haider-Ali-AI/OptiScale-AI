@@ -16,10 +16,10 @@ export function Welcome() {
   return (
     <>
       <section className="hero">
-        <div className="eyebrow">Marketing intelligence flight deck</div>
+        <div className="eyebrow">Enterprise Marketing Intelligence & Optimization Engine</div>
         <h1>Where should the next rupee of ad spend go?</h1>
         <p>
-          SignalSpend AI turns campaign history from Facebook, Instagram, Google, TikTok and YouTube into weighted KPIs, a
+          OptiScale AI turns campaign history from Facebook, Instagram, Google, TikTok and YouTube into weighted KPIs, a
           measured Pandas vs MapReduce vs Spark comparison, a validated revenue model and an exact PKR budget recommendation,
           with every assumption labelled.
         </p>

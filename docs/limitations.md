@@ -10,4 +10,4 @@
 - **Security model**: local mode has no authentication (loopback only). Hosted mode is one shared owner password; no multi-user roles.
 - **Windows**: 9 backend tests are POSIX/hosted-environment specific and fail on Windows (see 04-test-baseline.md). The stale-date test was fixed (T-1).
 - **Accessibility**: keyboard, labels, contrast tokens and chart tables were implemented and spot-checked; no formal screen-reader audit was done.
-- **Brand**: "SignalSpend AI" is a working name; trademark availability not checked.
+- **Brand**: "OptiScale AI" is a working name; trademark availability not checked.

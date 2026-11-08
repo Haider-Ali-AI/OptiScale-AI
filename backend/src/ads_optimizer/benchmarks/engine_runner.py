@@ -12,7 +12,7 @@ from ads_optimizer.benchmarks.contracts import ExperimentConfig
 def atomic_result(path, value):
     temporary = path.with_suffix(".tmp")
     temporary.write_text(json.dumps(value))
-    # SignalSpend patch (2026-11-02, see docs/08-backend-change-log.md): on Windows,
+    # OptiScale patch (2026-11-02, see docs/08-backend-change-log.md): on Windows,
     # replace() fails while the polling worker briefly holds the target open.
     # Retry for a bounded time; POSIX never raises here, so behaviour is unchanged.
     for attempt in range(100):

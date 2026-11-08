@@ -1,6 +1,6 @@
 {
   "checked_at": "2026-11-02T16:05:21.375Z",
-  "base": "https://signalspend-ai.vercel.app",
+  "base": "https://optiscale-ai.vercel.app",
   "results": [
     {
       "route": "/",
@@ -78,7 +78,7 @@
       "route": "/methodology",
       "width": 375,
       "status": 200,
-      "h1": "How SignalSpend calculates and decides",
+      "h1": "How OptiScale calculates and decides",
       "horizontal_overflow_px": 0,
       "console_errors": []
     },
@@ -158,7 +158,7 @@
       "route": "/methodology",
       "width": 768,
       "status": 200,
-      "h1": "How SignalSpend calculates and decides",
+      "h1": "How OptiScale calculates and decides",
       "horizontal_overflow_px": 0,
       "console_errors": []
     },
@@ -238,7 +238,7 @@
       "route": "/methodology",
       "width": 1440,
       "status": 200,
-      "h1": "How SignalSpend calculates and decides",
+      "h1": "How OptiScale calculates and decides",
       "horizontal_overflow_px": 0,
       "console_errors": []
     }

@@ -502,7 +502,7 @@ export async function api<T>(path: string, init: RequestInit = {}): Promise<T> {
   } catch (error) {
     if (init.signal?.aborted) throw error;
     throw new ApiError(
-      "Could not reach the SignalSpend service. Start the local backend (npm run dev) or check the hosted function, then retry.",
+      "Could not reach the OptiScale AI service. Start the local backend (npm run dev) or check the hosted function, then retry.",
       0,
     );
   }

@@ -20,5 +20,5 @@ Current handling:
 | Synthetic results mistaken for real performance | High (academic integrity) | Synthetic badges on every screen, warnings, methodology |
 | Hosted Basic auth is single-owner, not multi-user | Medium | Documented; no claim of RBAC |
 | NVIDIA provider not verified | Low (optional) | Main app requires no key |
-| Brand "SignalSpend AI" trademark availability | Low | Working name only; **not checked** |
-| Backend `WWW-Authenticate` realm still says "Adwise" | Cosmetic | Protected backend; the Next.js proxy (first prompt seen) uses "SignalSpend" |
+| Brand "OptiScale AI" trademark availability | Low | Working name only; **not checked** |
+| Backend `WWW-Authenticate` realm still says "Adwise" | Cosmetic | Protected backend; the Next.js proxy (first prompt seen) uses "OptiScale" |

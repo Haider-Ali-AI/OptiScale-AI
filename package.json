@@ -1,5 +1,5 @@
 {
-  "name": "signalspend-ai",
+  "name": "optiscale-ai",
   "private": true,
   "scripts": {
     "dev": "node scripts/dev.mjs",

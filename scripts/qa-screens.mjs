@@ -24,7 +24,7 @@ await mkdir(`${root}docs/screenshots`, { recursive: true });
 const results = [];
 for (const width of WIDTHS) {
   const context = await browser.newContext({ viewport: { width, height: 900 }, colorScheme: THEME, httpCredentials });
-  await context.addInitScript((t) => localStorage.setItem("signalspend.theme", t), THEME);
+  await context.addInitScript((t) => localStorage.setItem("optiscale.theme", t), THEME);
   for (const route of ROUTES) {
     const page = await context.newPage();
     const errors = [];

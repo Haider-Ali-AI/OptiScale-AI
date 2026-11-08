@@ -53,7 +53,7 @@ function ExplainKpi() {
 export function Methodology() {
   return (
     <>
-      <PageHead eyebrow="Methodology & help" title="How SignalSpend calculates and decides">
+      <PageHead eyebrow="Methodology & help" title="How OptiScale AI calculates and decides">
         Definitions, data rules, model and causal limits, the Big Data comparison method and where every number comes from.
       </PageHead>
       <ExplainKpi />

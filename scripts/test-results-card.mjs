@@ -63,8 +63,8 @@ table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}td,t
 td.r,th.r{text-align:right}.b{display:inline-block;white-space:nowrap;padding:2px 9px;border-radius:99px;font-weight:700;font-size:12.5px}.ok{background:rgba(95,211,154,.14);color:#5fd39a;border:1px solid rgba(95,211,154,.4)}.no{background:rgba(243,125,131,.14);color:#f37d83;border:1px solid rgba(243,125,131,.4)}
 .big{font-size:34px;font-weight:800}.muted{color:#a7b7ce;font-size:13px}.wide{grid-column:1/-1}code{font-family:Consolas,monospace;font-size:12.5px;color:#a7b7ce}
 </style></head><body>
-<h1>SignalSpend AI · Test results</h1>
-<p class="sub">Generated from recorded result files · ${esc(new Date().toISOString().slice(0, 16).replace("T", " "))} UTC · live = https://signalspend-ai.vercel.app (no login)</p>
+<h1>OptiScale AI · Test results</h1>
+<p class="sub">Generated from recorded result files · ${esc(new Date().toISOString().slice(0, 16).replace("T", " "))} UTC · live = https://optiscale-ai.vercel.app (no login)</p>
 <div class="grid">
 <div class="card"><h2>Backend (pytest)</h2><div class="big">${esc(pytestTotal.match(/(\d+) passed/)?.[1] || "?")} passed</div>
 <p class="muted">${esc(pytestTotal)}</p><p class="muted">Remaining failures are Windows/POSIX-environment specific (file modes, SIGKILL, SQLite temp locks, symlink privilege):</p>

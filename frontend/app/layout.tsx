@@ -9,15 +9,15 @@ import "./globals.css";
 import { Shell } from "@/components/shell";
 
 export const metadata: Metadata = {
-  title: { default: "SignalSpend AI", template: "%s · SignalSpend AI" },
+  title: { default: "OptiScale AI", template: "%s · OptiScale AI" },
   description:
-    "Marketing intelligence and advisory budget optimization: weighted KPIs, Big Data engine comparison, validated ML and exact PKR allocations.",
+    "Scalable Marketing Intelligence & Cross-Channel Optimization Engine: weighted KPIs, Big Data engine benchmarks, validated XGBoost revenue modeling, and exact PKR budget allocation.",
   icons: { icon: "/icon.svg" },
 };
 export const viewport: Viewport = { width: "device-width", initialScale: 1 };
 
 // Applied before paint so a stored theme never flashes the wrong palette.
-const themeScript = `try{var t=localStorage.getItem("signalspend.theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t}catch(e){}`;
+const themeScript = `try{var t=localStorage.getItem("optiscale.theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t}catch(e){}`;
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (

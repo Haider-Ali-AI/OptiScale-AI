@@ -20,7 +20,7 @@ type Ctx = {
 
 const WorkspaceContext = createContext<Ctx | null>(null);
 
-const FILTER_KEY = "signalspend.filters";
+const FILTER_KEY = "optiscale.filters";
 
 export function WorkspaceProvider({ children }: { children: ReactNode }) {
   const [state, setState] = useState<WorkspaceState | null>(null);

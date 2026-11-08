@@ -165,7 +165,7 @@ def test_weekly_upload_actual_training_without_optional_counts(isolated_reposito
         budget=budget,
         start_date=date(2026, 11, 2),
         horizon_days=7,
-        # SignalSpend: pin the as-of to the training as-of; the default date.today()
+        # OptiScale: pin the as-of to the training as-of; the default date.today()
         # made this test fail from 2026-11-02 onward (docs/08-backend-change-log.md T-1).
         as_of_date=date(2026, 10, 29),
         platforms=[PlatformLimit(platform="Google", max_percent=100)],

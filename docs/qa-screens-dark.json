@@ -78,7 +78,7 @@
       "route": "/methodology",
       "width": 320,
       "status": 200,
-      "h1": "How SignalSpend calculates and decides",
+      "h1": "How OptiScale calculates and decides",
       "horizontal_overflow_px": 0,
       "console_errors": []
     },
@@ -158,7 +158,7 @@
       "route": "/methodology",
       "width": 375,
       "status": 200,
-      "h1": "How SignalSpend calculates and decides",
+      "h1": "How OptiScale calculates and decides",
       "horizontal_overflow_px": 0,
       "console_errors": []
     },
@@ -238,7 +238,7 @@
       "route": "/methodology",
       "width": 430,
       "status": 200,
-      "h1": "How SignalSpend calculates and decides",
+      "h1": "How OptiScale calculates and decides",
       "horizontal_overflow_px": 0,
       "console_errors": []
     },
@@ -318,7 +318,7 @@
       "route": "/methodology",
       "width": 768,
       "status": 200,
-      "h1": "How SignalSpend calculates and decides",
+      "h1": "How OptiScale calculates and decides",
       "horizontal_overflow_px": 0,
       "console_errors": []
     },
@@ -398,7 +398,7 @@
       "route": "/methodology",
       "width": 1024,
       "status": 200,
-      "h1": "How SignalSpend calculates and decides",
+      "h1": "How OptiScale calculates and decides",
       "horizontal_overflow_px": 0,
       "console_errors": []
     },
@@ -478,7 +478,7 @@
       "route": "/methodology",
       "width": 1280,
       "status": 200,
-      "h1": "How SignalSpend calculates and decides",
+      "h1": "How OptiScale calculates and decides",
       "horizontal_overflow_px": 0,
       "console_errors": []
     },
@@ -558,7 +558,7 @@
       "route": "/methodology",
       "width": 1440,
       "status": 200,
-      "h1": "How SignalSpend calculates and decides",
+      "h1": "How OptiScale calculates and decides",
       "horizontal_overflow_px": 0,
       "console_errors": []
     }

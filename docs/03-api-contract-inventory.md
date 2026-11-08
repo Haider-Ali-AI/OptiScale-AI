@@ -7,7 +7,7 @@ Base path `/api/v1`. All routes are served by the unchanged `ads_optimizer.api:a
 - Writes (POST/PUT/DELETE/PATCH): `Origin` must be an allowed app origin; `Sec-Fetch-Site: cross-site` rejected (403); body ≤ 10 MiB local / 4 MiB hosted (413).
 - Serverless: request runs inside a Postgres-locked workspace snapshot restore/commit.
 
-| Method & path | Request | Response | SignalSpend screen |
+| Method & path | Request | Response | OptiScale screen |
 |---|---|---|---|
 | GET `/health` | — | `{status, service, version}` | launcher |
 | GET `/workspace` | — | `WorkspaceState` | shell (source picker, trust panel) |
